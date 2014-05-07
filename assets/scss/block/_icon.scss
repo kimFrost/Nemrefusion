@@ -1,0 +1,79 @@
+
+$__blockName: 'icon';
+
+
+
+/*CACTUSPILOT:OPEN*/
+
+/*MODULE:OPEN*//*
+#{$__blockName}
+*//*MODULE:CLOSE*/
+
+/*DESC:OPEN*//*
+This is a "#{$__blockName}" module.
+*//*DESC:CLOSE*/
+
+/*MARKUP:OPEN*//*
+<div class="#{$__blockName}">
+	<div class="icon__item"></div>
+</div>
+*//*MARKUP:CLOSE*/
+
+/*CACTUSPILOT:CLOSE*/
+
+
+@include block($__blockName) {
+	@include border-radius(50%, 50%, 50%, 50%);
+	background-color: $color_textgrey;
+	padding: 10px;
+	height: 22px;
+	width: 22px;
+	display: block;
+	position: relative;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	background-repeat: no-repeat;
+	background-position: center center;
+	&:hover {
+		background-color: lighten($color_textgrey, 10%);
+	}
+	&:active {
+		background-color: darken($color_textgrey, 10%);
+	}
+	@include m(facebook) {
+		background-image: url(../img/icons/icon_facebook.png);
+	}
+	@include m(instagram) {
+		background-image: url(../img/icons/icon_instragram.png);
+	}
+	@include m(linkedin) {
+		background-image: url(../img/icons/icon_linkein.png);
+	}
+	@include m(twitter) {
+		background-image: url(../img/icons/icon_twitter.png);
+	}
+	@include m(pinterest) {
+		background-image: url(../img/icons/icon_pinterest.png);
+	}
+	@include m(foursquare) {
+		background-image: url(../img/icons/icon_foursquare.png);
+	}
+	@include e(item) {
+		width: 10px;
+		height: 10px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: red;
+		@include m(bottomstate) {
+			bottom: 0;
+			top: auto;
+			@include m(subState) {
+				right: 0;
+				left: auto;
+			}
+		}
+	}
+}
+

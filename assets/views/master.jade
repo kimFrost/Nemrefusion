@@ -1,0 +1,47 @@
+doctype html
+html(data-ng-app="nemrefusion")
+	head
+		title Nem Refusion
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		link(rel='stylesheet', href='http://fast.fonts.net/cssapi/1e457648-3309-409a-bd99-0042ef6cab84.css')
+		link(rel='stylesheet', href='/css/nemrefusion.css')
+		// Main app js
+		script(src='/scripts/head.js')
+		block head
+	body
+		block body
+		section.nemrefusion
+			block glovalVars
+
+			header.header
+				div.container.container--line
+					div.container__content
+						div.container__inner
+							a.logo
+								img(src="http://placehold.it/150x70", alt="Nem Refusion")
+				nav.container.container--line.header__sticky(data-role="navigation", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}")
+					div.container__content
+						div.container__inner
+							ul.inlinelist
+								li.inlinelist__item 1
+								li.inlinelist__item 2
+								li.inlinelist__item 3
+								li.inlinelist__item 4
+								li.inlinelist__item 5
+
+
+
+
+
+
+
+
+
+
+
+			block content
+
+
+
+		script(src='/scripts/nemrefusion.js')

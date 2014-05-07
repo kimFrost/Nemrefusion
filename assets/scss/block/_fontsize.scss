@@ -1,0 +1,36 @@
+
+$__blockName: 'fontsize';
+
+@include block($__blockName) {
+	@include m(alpha){
+		@include fontSize(alpha);
+	}
+	@include m(beta){
+		@include fontSize(beta);
+	}
+	@include m(gamma){
+		@include fontSize(gamma);
+	}
+	@include m(delta){
+		@include fontSize(delta);
+	}
+	@include m(epsilon){
+		@include fontSize(epsilon);
+	}
+	@include m(zeta){
+		@include fontSize(zeta);
+	}
+	@include m(eta){
+		@include fontSize(eta);
+	}
+	@include m(theta){
+		@include fontSize(theta);
+	}
+	@include m(iota){
+		@include fontSize(iota);
+	}
+	@include m(kappa){
+		@include fontSize(kappa);
+	}
+}
+

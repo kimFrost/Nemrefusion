@@ -1,0 +1,28 @@
+
+$__blockName: 'breadcrumb';
+
+@include block($__blockName) {
+	@include fontSize(delta, 0);
+	display: block;
+	font-family: $font_didotRegular;
+	color: $color_textlightgrey;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	& > a {
+		@include hoverActiveStates($color_textlightgrey, "color");
+		font-size: inherit;;
+	}
+	@include e(item) {
+		display: block;
+		float: left;
+		color: inherit;
+		& > a {
+			@include hoverActiveStates($color_textlightgrey, "color");
+			font-size: inherit;
+		}
+	}
+}
+

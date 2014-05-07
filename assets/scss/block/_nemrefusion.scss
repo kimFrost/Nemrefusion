@@ -1,0 +1,68 @@
+
+$__blockName: 'nemrefusion';
+
+@include block($__blockName) {
+	@include gradient(#f6f6f6, $color_white, #f6f6f6);
+	overflow: auto;
+	color: $color_textblack;
+	width: 100%;
+	min-height: 100%;
+	position: relative;
+	font-family: $font_didotRegular;
+	@include onlyInDebug() {
+		background: red;
+		@include mediaQueries(tablet){
+			background: orangered;
+		};
+		@include mediaQueries(mobile){
+			background: brown;
+		};
+	}
+	&,* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+	a {
+		outline: 0;
+		border: 0;
+		color: $color_textblack;
+		text-decoration: none;
+		font-family: inherit;
+		&:hover {
+			color: lighten($color_textblack, 10%);
+		}
+		&:active {
+			color: lighten($color_textblack, 5%);
+		}
+	}
+	img {
+		border: 0;
+	}
+	table, td, tr {
+		padding: 0;
+		margin: 0;
+		border: 0;
+		border-collapse: collapse;
+	}
+	p, h1, h2, h3, h4 {
+		margin-top: 0;
+		font-weight: normal;
+	}
+	p {
+		//@include fontSize(beta, 2);
+	}
+	h1 {
+		//@include fontSize(zeta, 1.3);
+	}
+	h2 {
+		//@include fontSize(epsilon, 1.3);
+	}
+	h3 {
+		//@include fontSize(delta, 1.3);
+	}
+	h4 {
+		//@include fontSize(gamma, 1.3);
+	}
+}
+

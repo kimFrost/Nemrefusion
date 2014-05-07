@@ -1,0 +1,60 @@
+
+/* Global Variables */
+
+// Options booleans
+$useAdaptive: true !global; // Media Querie mixin will skip if this ain't true
+$debug: false !global; // Show debug features
+$showClasses: false !global; // Show debug features
+$allowCrossAlter: true !global; // Allow modules to alter each other // DEPRECATED --> Replaced by new blockconstructor extendmode function
+
+
+// Colors
+$color_white: #fff;
+$color_black: #000;
+$color_textblack: #000;
+$color_lightgray: #eaeaea;
+$color_textgray: #5b5b5b;
+$color_textdarkgray: #474747;
+$color_textwhite: #fefdfd;
+$color_lagoonblue: #579dc1;
+$color_summerorrange: #fb971b;
+$color_babyblue: #cee2ed;
+
+
+// Media Queries, Labels and Content widths
+$contentWidth: "" !global;
+$mediaQueries: mobile 1px 599px, tablet 600px 999px, desktop 1000px;
+$mediaQueriesContentWidths: mobile 320px, tablet 560px, desktop 960px;
+$mediaQueriesDefault: desktop;
+
+@mixin resetContentWidth() {
+	@for $i from 1 through length($mediaQueriesContentWidths) {
+		$__list: nth($mediaQueriesContentWidths, $i);
+		$__name: nth($__list, 1);
+		$__width: nth($__list, 2);
+		@if $__name == $mediaQueriesDefault {
+			$contentWidth: $__width !global;
+		}
+	}
+}
+@include resetContentWidth();
+
+
+
+
+
+
+// Themes
+// Colorsets - Supports up to 5 colors each
+// ({label} {color1} {color2} {color3} {color4} {color5})
+//@include newColor(boxc $midnightBlue $orange $steelBlue transparent $lime);
+
+
+
+
+
+// variable-exists($name) checks if a variable resolves in the current scope.
+// global-variable-exists($name) checks if a global variable of the given name exists.
+
+
+

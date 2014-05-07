@@ -1,0 +1,20 @@
+
+$__blockName: 'header';
+
+$__headerStickyHeight: 60px;
+
+@include block($__blockName) {
+	width: 100%;
+	background-color: $color_white;
+	padding-bottom: $__headerStickyHeight;
+	@include e(sticky) {
+		position: absolute;
+		background-color: inherit;
+		z-index: 70;
+		@include m(fixed) {
+			position: fixed;
+			top: 0;
+		}
+	}
+}
+

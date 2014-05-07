@@ -1,0 +1,98 @@
+
+$_blockName: 'footer';
+
+@include block($_blockName) {
+	@include fontSize(gamma, 0);
+	font-family: $font_didotRegular;
+	width: 100%;
+	background-color: $color_white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	& {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	@include mediaQueries(mobile){
+		@include fontSize(delta, 1.3);
+	}
+	@include e(left) {
+		margin-left: 40px;
+		float: left;
+		text-align: left;
+		line-height: 42px;
+		color: $color_textlightgrey;
+		@include mediaQueries(mobile){
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-bottom: 10px;
+			line-height: normal;
+		}
+		@include mediaQueries(tablet){
+			padding-bottom: 10px;
+		}
+	}
+	@include e(right) {
+		margin-right: 40px;
+		float: right;
+		text-align: right;
+	}
+	@include e(left right) {
+		@include mediaQueries(tablet){
+			clear: both;
+			width: 100%;
+			margin: 0;
+			text-align: center;
+
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+
+			display: flex;
+
+			-webkit-box-align: center;
+			-webkit-flex-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+
+			-webkit-box-pack: center;
+			-moz-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+		};
+		@include mediaQueries(mobile){
+			clear: both;
+			width: 100%;
+			margin: 0;
+			text-align: center;
+
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+
+			display: flex;
+
+			-webkit-box-align: center;
+			-webkit-flex-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+
+			-webkit-box-pack: center;
+			-moz-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+		};
+	}
+}
+

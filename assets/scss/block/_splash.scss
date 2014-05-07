@@ -1,0 +1,103 @@
+
+$__blockName: 'splash';
+
+$__min_height: 100px;
+$__max_height: 1000px;
+$__height_interval: 100px;
+$__num_of_heights: ($__max_height - $__min_height) / $__height_interval;
+
+@include block($__blockName) {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: block;
+	& > img {
+		display: block;
+		width: 100%;
+		margin: 0;
+	}
+	@include e(text) {
+		@include fill();
+		@include text-shadow(0px 0px 10px rgba($color_black, 0.9), 0px 0px 3px rgba($color_black, 0.5));
+		display: block;
+		font-family: $font_didotRegular;
+		color: $color_white;
+		font-weight: normal;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+
+		-webkit-box-align: center;
+		-webkit-flex-align: center;
+		-ms-flex-align: center;
+		-webkit-align-items: center;
+		align-items: center;
+
+
+		-webkit-box-pack: center;
+		-moz-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+
+		z-index: 1;
+		word-break: break-all;
+	}
+	// Flexbox fallback
+	.no-flexbox & {
+	//.no-flexboxlegacy & {
+		.splash__text {
+			display: table;
+			vertical-align: middle;
+			& > * {
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+			}
+		}
+	}
+
+
+	@include e(item) {
+		@include fill();
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		z-index: 0;
+		img {
+			display: block;
+		}
+	}
+	@for $i from 0 through $__num_of_heights {
+		$_height: $i * $__height_interval + $__min_height;
+		$_height_no_px: $_height / ($_height * 0 + 1); // Convert to int
+		@include m(height#{$_height_no_px}) {
+			height: $_height;
+		}
+	}
+	@include mediaQueries(tablet){
+		@for $i from 0 through $__num_of_heights {
+			$_height: $i * $__height_interval + $__min_height;
+			$_height_no_px: $_height / ($_height * 0 + 1); // Convert to int
+			@include m(height#{$_height_no_px}) {
+				height: $_height / 1.6;
+			}
+		}
+	};
+	@include mediaQueries(mobile){
+		@for $i from 0 through $__num_of_heights {
+			$_height: $i * $__height_interval + $__min_height;
+			$_height_no_px: $_height / ($_height * 0 + 1); // Convert to int
+			@include m(height#{$_height_no_px}) {
+				height: $_height / 2;
+			}
+		}
+	};
+}
+

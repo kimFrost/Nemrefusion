@@ -1,0 +1,21 @@
+
+$__blockName: 'video';
+
+@include block($__blockName) {
+	width: 100%;
+	margin-bottom: 20px;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	& > iframe {
+		@include mediaQueries(tablet){
+			height: 400px;
+		}
+		@include mediaQueries(mobile){
+			height: 300px;
+		}
+	}
+}
+

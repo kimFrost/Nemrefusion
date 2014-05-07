@@ -1,0 +1,29 @@
+
+$__blockName: 'inlinelist';
+
+@include block($__blockName) {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: block;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	@include e(item) {
+		display: block;
+		margin: 0;
+		padding: 0;
+		float: left;
+		& + & {
+			margin-left: 5px;
+		}
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+	}
+}
+

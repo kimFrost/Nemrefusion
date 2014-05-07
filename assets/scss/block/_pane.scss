@@ -1,0 +1,70 @@
+
+$__blockName: 'pane';
+
+@include block($__blockName) {
+	width: 100%;
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	@include e(nav) {
+		display: block;
+		width: 100%;
+		clear: both;
+		margin-bottom: 30px;
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+	}
+	@include e(link) {
+		border-color: transparent;
+		border-style: solid;
+		border-width: 0;
+		border-bottom-width: 2px;
+		cursor: pointer;
+		display: block;
+		float: left;
+		font-family: $font_didotBold;
+		font-weight: normal;
+		&:hover {
+			border-color: $color_black;
+		}
+		& + & {
+			margin-left: 20px;
+			@include mediaQueries(tablet){
+
+			};
+			@include mediaQueries(mobile){
+				margin-left: 15px;
+			};
+		}
+		@include m(active) {
+			border-color: $color_black;
+		}
+		@include mediaQueries(tablet){
+
+		};
+		@include mediaQueries(mobile){
+			letter-spacing: -1px;
+		};
+	}
+	@include e(container) {
+		width: 100%;
+		clear: both;
+	}
+	@include e(item) {
+		display: none;
+		text-align: justify;
+		@include m(active) {
+			display: block;
+		}
+		a {
+			font-family: $font_didotBold;
+			font-weight: normal;
+		}
+	}
+}
+
