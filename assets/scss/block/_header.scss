@@ -7,14 +7,24 @@ $__headerStickyHeight: 60px;
 	width: 100%;
 	background-color: $color_white;
 	padding-bottom: $__headerStickyHeight;
+	margin-bottom: 35px;
+	z-index: 70;
+	&,* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
 	@include e(sticky) {
 		position: absolute;
-		background-color: inherit;
+		background-color: rgba($color_white, 0.8);
+		background-color: red;
 		z-index: 70;
 		@include m(fixed) {
 			position: fixed;
 			top: 0;
 		}
 	}
+	@include e(upper) {
+		height: 100px;
+	}
 }
-

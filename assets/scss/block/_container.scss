@@ -53,7 +53,8 @@ $__gutterWidth: 20px;
 		min-width: $contentWidth + $__gutterWidth;
 	};
 	@include mediaQueries(mobile){
-		min-width: $contentWidth + $__gutterWidth;
+		//min-width: $contentWidth + $__gutterWidth;
+		min-width: 100%;
 	};
 }
 

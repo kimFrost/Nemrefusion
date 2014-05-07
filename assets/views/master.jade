@@ -3,7 +3,7 @@ html(data-ng-app="nemrefusion")
 	head
 		title Nem Refusion
 		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1")
+		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 user-scalable=no")
 		link(rel='stylesheet', href='http://fast.fonts.net/cssapi/1e457648-3309-409a-bd99-0042ef6cab84.css')
 		link(rel='stylesheet', href='/css/nemrefusion.css')
 		// Main app js
@@ -18,9 +18,11 @@ html(data-ng-app="nemrefusion")
 				div.container.container--line
 					div.container__content
 						div.container__inner
-							a.logo
-								img(src="http://placehold.it/150x70", alt="Nem Refusion")
-				nav.container.container--line.header__sticky(data-role="navigation", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}")
+							div.header__upper
+								a.logo
+									img(src="http://placehold.it/150x70", alt="Nem Refusion")
+
+				nav.container.container--line.header__sticky(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="0")
 					div.container__content
 						div.container__inner
 							ul.inlinelist

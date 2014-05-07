@@ -1,0 +1,26 @@
+
+$__blockName: 'query';
+
+
+@include block($__blockName) {
+	display: block;
+	@include m(desktop tablet mobile) {
+		display: none;
+	}
+	@include mediaQueries(desktop){
+		@include m(desktop) {
+			display: block;
+		}
+	};
+	@include mediaQueries(tablet){
+		@include m(tablet) {
+			display: block;
+		}
+	};
+	@include mediaQueries(mobile){
+		@include m(mobile) {
+			display: block;
+		}
+	};
+}
+

@@ -9,6 +9,16 @@ block append content
 	section.container
 		div.container__content
 			div.container__inner
-				| Forside
-				- for (var i=1; i<=60; i++)
-					p Test #{i}
+				div.content
+					div.foxhound.query.query--mobile(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
+						| Foxhound
+						div.foxhound__switch(data-ng-click="toggleShow()")
+
+					div.content__aside.query.query--desktop.query--tablet
+						div.findme(data-ng-controller="StickyCtrl", data-ng-style="css", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="60")
+							| aside
+
+					div.content__main
+						| main
+						- for (var i=1; i<=60; i++)
+							p Test #{i}

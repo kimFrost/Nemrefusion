@@ -1,0 +1,16 @@
+
+$__blockName: 'content';
+
+
+@include block($__blockName) {
+	width: 100%;
+	@include e(main) {
+		overflow: hidden;
+	}
+	@include e(aside) {
+		float: left;
+		width: 30%;
+		min-height: 1px
+	}
+}
+
