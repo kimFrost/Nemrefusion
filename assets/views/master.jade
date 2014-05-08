@@ -14,7 +14,7 @@ html(data-ng-app="nemrefusion")
 		section.nemrefusion
 			block glovalVars
 
-			div.dev(data-ng-controller="devCtrl")
+			//div.dev(data-ng-controller="devCtrl")
 				div.dev__log(data-ng-repeat="log in data.logList track by $index", data-ng-click="showLog(log.id)", data-ng-class="{'dev__log--active': log.id === data.logActiveId}") {{log.log}} {{log.name}} {{log.id}}
 				div.dev__modal(data-ng-class="{'dev__modal--show': states.logShow}")
 					div(ng-bind-html="data.logContent")
@@ -26,30 +26,33 @@ html(data-ng-app="nemrefusion")
 						div.container__inner
 							div.header__upper
 								a.logo
-									img(src="http://placehold.it/150x70", alt="Nem Refusion")
+									//img(src="http://placehold.it/150x70", alt="Nem Refusion")
+									div.prototype(style="width: 330px;height: 50px;")
+										div.prototype__name Logo
 
 				nav.container.container--line.header__sticky(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="0")
 					div.container__content
 						div.container__inner
-							ul.inlinelist
-								li.inlinelist__item 1
-								li.inlinelist__item 2
-								li.inlinelist__item 3
-								li.inlinelist__item 4
-								li.inlinelist__item 5
-
-
-
-
-
-
-
+							div.prototype
+								div.prototype__name Menu
+							//ul.inlinelist
+								li.inlinelist__item Hvad er nemrefusion?
+								li.inlinelist__item Sådan indberetter du
+								li.inlinelist__item Nyttig information
+								li.inlinelist__item Nyheder og support
+								li.inlinelist__item Gå til indberetning
+								li.inlinelist__item Søg
 
 
 
 
 
 			block content
+
+
+			div.prototype(style="height: 300px; width: 100%;")
+				div.prototype__name Footer
+
 
 
 

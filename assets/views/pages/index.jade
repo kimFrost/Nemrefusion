@@ -10,7 +10,7 @@ block append content
 		div.container__content
 			div.container__inner
 				div.content
-					div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
+					div.foxhound.query.query--mobile.query--tablet.query--desktop(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
 						div.foxhound__switch(data-ng-click="toggleShow()")
 						div.prototype
 							div.prototype__name Foxhound
@@ -21,10 +21,12 @@ block append content
 								div.prototype__name Aside
 
 					div.content__main
-						div.prototype(style="height: 900px;")
-							div.prototype__name Main
-						div.prototype(style="height: 400px;")
-							div.prototype__name Main
+						div.content__partial
+							div.prototype(style="height: 900px;")
+								div.prototype__name Main
+						div.content__partial
+							div.prototype(style="height: 400px;")
+								div.prototype__name Main
 
 
 

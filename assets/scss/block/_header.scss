@@ -17,7 +17,8 @@ $__headerStickyHeight: 60px;
 	@include e(sticky) {
 		position: absolute;
 		background-color: rgba($color_white, 0.8);
-		background-color: red;
+		height: $__headerStickyHeight;
+		padding: 0;
 		z-index: 70;
 		@include m(fixed) {
 			position: fixed;

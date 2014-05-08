@@ -18,5 +18,8 @@ $__blockName: 'content';
 			clear: both;
 		}
 	}
+	@include e(partial) {
+		margin-bottom: 20px;
+	}
 }
 

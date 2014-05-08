@@ -103,11 +103,8 @@
 			});
 			*/
 		});
-		window.onload = function() {
-			setTimeout(function() {
-			},50);
-		};
 
+		/*
 		window.addEventListener('DOMContentLoaded', function () {
 			$scope.$apply(function(){
 				var _data = {};
@@ -130,7 +127,7 @@
 				});
 			});
 		}, false);
-
+		*/
 
 
 		// Init functions
