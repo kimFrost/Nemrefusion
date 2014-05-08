@@ -24,7 +24,16 @@
 		catch(err) {
 			//send error to developer platform
 		}
-	}
+	};
+	Nemrefusion.resetScrollView = function() {
+		// Reset scroll container(window)
+		window.scrollTo(0, 0);
+	};
+	Nemrefusion.init = function() {
+		Nemrefusion.resetScrollView();
+	};
+
+	Nemrefusion.init();
 
 	// Make sure that module is exposed to window
 	window.Nemrefusion = Nemrefusion;

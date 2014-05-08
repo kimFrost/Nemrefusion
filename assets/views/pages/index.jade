@@ -10,15 +10,23 @@ block append content
 		div.container__content
 			div.container__inner
 				div.content
-					div.foxhound.query.query--mobile(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
-						| Foxhound
+					div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
 						div.foxhound__switch(data-ng-click="toggleShow()")
+						div.prototype
+							div.prototype__name Foxhound
 
-					div.content__aside.query.query--desktop.query--tablet
-						div.findme(data-ng-controller="StickyCtrl", data-ng-style="css", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="60")
-							| aside
+					div.content__aside.query.query--desktop
+						div.findme(data-ng-controller="StickyCtrl", data-ng-style="css", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="90")
+							div.prototype(style="height: 300px;")
+								div.prototype__name Aside
 
 					div.content__main
-						| main
-						- for (var i=1; i<=60; i++)
-							p Test #{i}
+						div.prototype(style="height: 900px;")
+							div.prototype__name Main
+						div.prototype(style="height: 400px;")
+							div.prototype__name Main
+
+
+
+
+//Har ikke problemer med touch events scroll. Der opdaterer det fint. Det er mere når reloader sitet

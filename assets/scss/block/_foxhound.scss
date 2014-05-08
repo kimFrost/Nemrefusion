@@ -20,7 +20,7 @@ $__foxhoundWidth: 80%;
 		content: "";
 		display: block;
 		position: absolute;
-		left: -200%;
+		left: 200%;
 		top: 0;
 		bottom: 0;
 		right: 100%;
@@ -29,10 +29,10 @@ $__foxhoundWidth: 80%;
 		opacity: 0;
 	}
 	@include m(show) {
-		//right: 0; // Switch to offset for better animation performance
+		//right: 0; // Switch to translate for better animation performance
 		@include translate(0%, 0);
 		&:before {
-			//left: -200%;
+			left: -200%;
 			opacity: 1;
 		}
 	}

@@ -9,8 +9,14 @@ $__blockName: 'content';
 	}
 	@include e(aside) {
 		float: left;
-		width: 30%;
-		min-height: 1px
+		width: 300px;
+		min-height: 1px;
+		margin-right: 20px;
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
 	}
 }
 

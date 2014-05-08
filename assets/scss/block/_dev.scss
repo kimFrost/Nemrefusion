@@ -1,0 +1,59 @@
+
+$__blockName: 'dev';
+
+$__headerStickyHeight: 60px;
+
+@include block($__blockName) {
+	display: block;
+	background-color: yellowgreen;
+	color: #000;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	width: 150px;
+	z-index: 100;
+	font-size: 14px;
+	height: 200px;
+	padding: 5px;
+	&,* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+	@include e(log) {
+		@include hoverActiveStates(#000, 'background-color');
+		font-size: inherit;
+		padding: 3px;
+		color: #fff;
+		margin-bottom: 5px;
+		cursor: pointer;
+		@include m(active) {
+			background-color: #0b97c4;
+		}
+	}
+	@include e(modal) {
+		position: absolute;
+		left: 100%;
+		bottom: 0;
+		background-color: #000;
+		color: #fff;
+		padding: 5px;
+		width: 200px;
+		min-height: 40px;
+		display: none;
+		@include m(show) {
+			display: block;
+		}
+		@include e(modalclose) {
+			@include hoverActiveStates(yellowgreen, 'background-color');
+			padding: 5px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 5px;
+			cursor: pointer;
+			color: #000;
+		}
+	}
+}

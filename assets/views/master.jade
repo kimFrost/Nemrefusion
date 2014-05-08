@@ -14,6 +14,12 @@ html(data-ng-app="nemrefusion")
 		section.nemrefusion
 			block glovalVars
 
+			div.dev(data-ng-controller="devCtrl")
+				div.dev__log(data-ng-repeat="log in data.logList track by $index", data-ng-click="showLog(log.id)", data-ng-class="{'dev__log--active': log.id === data.logActiveId}") {{log.log}} {{log.name}} {{log.id}}
+				div.dev__modal(data-ng-class="{'dev__modal--show': states.logShow}")
+					div(ng-bind-html="data.logContent")
+					div.dev__modalclose(data-ng-click="hideLog()") x
+
 			header.header
 				div.container.container--line
 					div.container__content
@@ -31,6 +37,7 @@ html(data-ng-app="nemrefusion")
 								li.inlinelist__item 3
 								li.inlinelist__item 4
 								li.inlinelist__item 5
+
 
 
 

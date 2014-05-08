@@ -1,0 +1,39 @@
+
+$__blockName: 'prototype';
+
+@include block($__blockName) {
+	display: block;
+	width: 100%;
+	min-height: 100%;
+	background-color: #333;
+
+	text-align: center;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-box-align: center;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+
+	& + & {
+		margin-top: 20px;
+	}
+	@include e(name) {
+		@include fontSize(kappa);
+		@include rotate(-30deg);
+		display: block;
+		color: #999;
+	}
+}
