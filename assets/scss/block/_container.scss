@@ -6,7 +6,7 @@ $__gutterWidth: 20px;
 	width: 100%;
 	padding-right: $__gutterWidth;
 	padding-left: $__gutterWidth;
-	min-width: $contentWidth;
+	min-width: $contentWidth + ($__gutterWidth * 2);
 	@include onlyInDebug() {
 		background-color: bisque;
 	}
@@ -50,7 +50,7 @@ $__gutterWidth: 20px;
 	}
 	// Media Queries (container)
 	@include mediaQueries(tablet){
-		min-width: $contentWidth + $__gutterWidth;
+		min-width: $contentWidth + ($__gutterWidth * 2);
 	};
 	@include mediaQueries(mobile){
 		//min-width: $contentWidth + $__gutterWidth;

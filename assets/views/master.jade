@@ -4,14 +4,15 @@ html(data-ng-app="nemrefusion")
 		title Nem Refusion
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 user-scalable=no")
+		//meta(name="viewport", content="width=device-width, initial-scale=1")
 		link(rel='stylesheet', href='http://fast.fonts.net/cssapi/1e457648-3309-409a-bd99-0042ef6cab84.css')
 		link(rel='stylesheet', href='/css/nemrefusion.css')
 		// Main app js
 		script(src='/scripts/head.js')
 		block head
-	body
+	body(data-ng-controller="ScrollCtrl", data-ng-style="css")
 		block body
-		section.nemrefusion
+		section.nemrefusion(data-ng-style="css")
 			block glovalVars
 
 			//div.dev(data-ng-controller="devCtrl")
@@ -20,7 +21,7 @@ html(data-ng-app="nemrefusion")
 					div(ng-bind-html="data.logContent")
 					div.dev__modalclose(data-ng-click="hideLog()") x
 
-			header.header
+			header.header.query--desktop
 				div.container.container--line
 					div.container__content
 						div.container__inner
@@ -44,8 +45,24 @@ html(data-ng-app="nemrefusion")
 								li.inlinelist__item Søg
 
 
+			div.header.query--tablet.query--mobile
+				nav.container.container--line.header__sticky(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="0")
+					div.container__content
+						div.container__inner
+							div.prototype(style="width:50px; height: 50px; float:left; margin-right: 20px;", data-ng-click="toggleMobileMenu()")
+								div.prototype__name m
+							div.prototype(style="width:150px; height: 50px;")
+								div.prototype__name Logo
 
 
+			div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
+				//div.foxhound__switch(data-ng-click="toggleShow()")
+				div.prototype
+					div.container
+						div.container__content
+							div.container__inner
+								div.prototype(style="height:400px;")
+									div.prototype__name Foxhound
 
 			block content
 

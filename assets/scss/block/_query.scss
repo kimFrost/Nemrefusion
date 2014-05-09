@@ -4,20 +4,21 @@ $__blockName: 'query';
 
 @include block($__blockName) {
 	display: block;
-	@include m(desktop tablet mobile) {
+	@include m(tablet mobile) {
 		display: none;
 	}
-	@include mediaQueries(desktop){
-		@include m(desktop) {
-			display: block;
-		}
-	};
 	@include mediaQueries(tablet){
+		@include m(desktop) {
+			display: none;
+		}
 		@include m(tablet) {
 			display: block;
 		}
 	};
 	@include mediaQueries(mobile){
+		@include m(desktop) {
+			display: none;
+		}
 		@include m(mobile) {
 			display: block;
 		}

@@ -3,7 +3,7 @@ $__blockName: 'nemrefusion';
 
 @include block($__blockName) {
 	@include gradient(#f6f6f6, $color_white, #f6f6f6);
-	overflow: auto;
+	//overflow: auto;
 	color: $color_textblack;
 	width: 100%;
 	min-height: 100%;

@@ -3,9 +3,12 @@
 
 	// Sticky Controller
 	Nemrefusion.Angular.controller('StickyCtrl', ['$scope', '$element', '$rootScope', function($scope, $element, $rootScope) {
-		$scope.data = ($scope.data === undefined) ? {} : $scope.data;
-		$scope.states = ($scope.states === undefined) ? {} : $scope.states;
-		$scope.css = ($scope.css === undefined) ? {} : $scope.css;
+		//$scope.data = ($scope.data === undefined) ? {} : $scope.data;
+		$scope.data = {};
+		//$scope.states = ($scope.states === undefined) ? {} : $scope.states;
+		$scope.states = {};
+		//$scope.css = ($scope.css === undefined) ? {} : $scope.css;
+		$scope.css = {};
 		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
 		// Options
 
@@ -34,20 +37,54 @@
 
 		// States
 		$scope.states.sticky = false;
+		$scope.states.rendered = false;
+		$scope.states.dataRead = false;
 
 		/* Scope Functions
 		===========================*/
+		$scope.updateStickyData = function() {
+			$scope.states.rendered =  $scope.visible($element[0]);
+			if ($scope.states.rendered && !$scope.states.dataRead) {
+				$scope.data.originalOffsetTop = (function(){
+					var el = $element[0];
+					var offsets = el.getBoundingClientRect();
+					return offsets.top + window.scrollY;
+				})();
+				$scope.data.originalOffsetLeft = (function(){
+					var el = $element[0];
+					var offsets = el.getBoundingClientRect();
+					return offsets.left + window.scrollX;
+				})();
+				$scope.states.dataRead = true;
+
+				var _data = {};
+
+				_data.logContent = "";
+				_data.logContent += "<p>visible: " + $scope.states.rendered + "</p>";
+				_data.logContent += "<p>originalOffsetTop: " + $scope.data.originalOffsetTop + "</p>";
+				_data.logContent += "<p>originalOffsetLeft: " + $scope.data.originalOffsetLeft + "</p>";
+
+				$rootScope.$broadcast('devLog', {
+					log: "Read",
+					name: $scope.$id,
+					content: _data.logContent
+				});
+			}
+		};
 		$scope.updateStickyStatus = function() {
+			$scope.updateStickyData();
 			var _data = {};
 			_data.windowScrollTop = window.scrollY;
 			_data.diff = $scope.data.originalOffsetTop - _data.windowScrollTop - $scope.data.stickyTopPos;
-			if (_data.diff <= 0) {
+
+			if (_data.diff <= 0 && $scope.states.rendered) {
 				//if (_data.windowScrollTop > $scope.data.originalOffsetTop) {
 				$scope.states.sticky = true;
 				$scope.css.top = $scope.data.stickyTopPos.toString() + "px";
 				//$scope.css.left = $scope.data.originalOffsetLeft.toString() + "px";
 
 				_data.logContent = "";
+				_data.logContent += "<p>:visible: " + $scope.states.rendered + "</p>";
 				_data.logContent += "<p>windowScrollTop: " + _data.windowScrollTop + "</p>";
 				_data.logContent += "<p>window.pageYOffset : " + window.pageYOffset  + "</p>";
 				_data.logContent += "<p>data.originalOffsetTop: " + $scope.data.originalOffsetTop + "</p>";
@@ -66,6 +103,7 @@
 				//$scope.css.left = "";
 
 				_data.logContent = "";
+				_data.logContent += "<p>visible: " + $scope.states.rendered + "</p>";
 				_data.logContent += "<p>windowScrollTop: " + _data.windowScrollTop + "</p>";
 				_data.logContent += "<p>window.pageYOffset : " + window.pageYOffset  + "</p>";
 				_data.logContent += "<p>data.originalOffsetTop: " + $scope.data.originalOffsetTop + "</p>";
@@ -79,6 +117,20 @@
 				});
 			}
 			_data = null;
+		};
+		$scope.visible = function(element) {
+			if (element.offsetWidth > 0 && element.offsetHeight > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		};
+		$scope.toggleMobileMenu = function(state) {
+			state = (state === undefined) ? "toggle" : state;
+			$rootScope.$broadcast('foxhound__toggleShow', {
+				state: state
+			});
 		};
 
 		/* Bindings
@@ -102,36 +154,14 @@
 				$scope.updateStickyStatus();
 			});
 			*/
+			$scope.$apply(function() {
+				$scope.updateStickyStatus();
+			});
+
 		});
 
-		/*
-		window.addEventListener('DOMContentLoaded', function () {
-			$scope.$apply(function(){
-				var _data = {};
-				_data.windowScrollTop = window.scrollY;
-				_data.diff = $scope.data.originalOffsetTop - _data.windowScrollTop - $scope.data.stickyTopPos;
-
-				_data.logContent = "";
-				_data.logContent += "<p>window.scrollTop: " + window.scrollTop + "</p>";
-				_data.logContent += "<p>document.body.scrollTop: " + document.body.scrollTop + "</p>";
-				_data.logContent += "<p>window.scrollY: " + _data.windowScrollTop + "</p>";
-				_data.logContent += "<p>window.pageYOffset : " + window.pageYOffset  + "</p>";
-				_data.logContent += "<p>data.originalOffsetTop: " + $scope.data.originalOffsetTop + "</p>";
-				_data.logContent += "<p>data.stickyTopPos: " + $scope.data.stickyTopPos + "</p>";
-				_data.logContent += "<p>Diff: " + _data.diff + "</p>";
-
-				$rootScope.$broadcast('devLog', {
-					log: "DomLoad",
-					name: $scope.$id,
-					content: _data.logContent
-				});
-			});
-		}, false);
-		*/
-
-
-		// Init functions
-		//$scope.updateStickyStatus();
+		console.log("StickyCtrl");
+		console.log($scope);
 	}]);
 
 
@@ -152,15 +182,122 @@
 
 		/* Scope Functions
 		===========================*/
-		$scope.toggleShow = function() {
-			$scope.states.show = !$scope.states.show;
+		$scope.toggleShow = function(state) {
+			state = (state === undefined) ? "toggle" : state;
+			if (state === "toggle") {
+				$scope.states.show = !$scope.states.show;
+			}
+			if (state === "hide") {
+				$scope.states.show = false;
+			}
+			if (state === "show") {
+				$scope.states.show = true;
+			}
+			$rootScope.$broadcast('scroll__toggleScroll', {
+				state: state
+			});
 		};
+
 
 		/* Bindings
 		===========================*/
-
+		// Scope Events
+		$rootScope.$on('foxhound__toggleShow',function(event, data) {
+			if (data != undefined && data.state != undefined) {
+				$scope.toggleShow(data.state);
+			}
+		});
+		// User Events
+		//$element.bind('click', function() {
+			//console.log("click");
+		//});
 	}]);
 
+
+
+	// Scroll Controller (For disable scroll with overflow hidden)
+	Nemrefusion.Angular.controller('ScrollCtrl', ['$scope', '$element', '$rootScope', function($scope, $element, $rootScope) {
+		//$scope.data = ($scope.data === undefined) ? {} : $scope.data;
+		$scope.data = {};
+		//$scope.states = ($scope.states === undefined) ? {} : $scope.states;
+		$scope.states = {};
+		//$scope.css = ($scope.css === undefined) ? {} : $scope.css;
+		$scope.css = {};
+		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
+		// Options
+
+		// Data
+		$scope.data.lastYPos = window.scrollY;
+
+		// States
+		$scope.states.disable = false;
+
+		// CSS
+
+
+		/* Scope Functions
+		 ===========================*/
+		/*
+		$scope.toggleScroll = function(state) {
+			state = (state === undefined) ? "toggle" : state;
+			if (state === "toggle") {
+				if ($scope.css.overflow != "hidden") {
+					$scope.css.overflow = "hidden";
+				}
+				else {
+					$scope.css.overflow = null;
+				}
+			}
+			if (state === "hide") {
+				$scope.css.overflow = "hidden";
+			}
+			if (state === "show") {
+				$scope.css.overflow = null;
+			}
+		};
+		*/
+		$scope.toggleScroll = function(state) {
+			state = (state === undefined) ? "toggle" : state;
+			if (state === "toggle") {
+				if ($scope.css.overflow != "hidden") {
+					$scope.states.disable = true;
+				}
+				else {
+					$scope.states.disable = false;
+				}
+			}
+			if (state === "hide") {
+				$scope.states.disable = true;
+			}
+			if (state === "show") {
+				$scope.states.disable = false;
+			}
+		};
+
+		/* Bindings
+		 ===========================*/
+		// Scope Events
+		$rootScope.$on('scroll__toggleScroll',function(event, data) {
+			if (data != undefined && data.state != undefined) {
+				$scope.toggleScroll(data.state);
+			}
+		});
+		// User Events
+		angular.element(window).bind('scroll', function(event) {
+			console.log($scope.states.disable);
+			if ($scope.states.disable) {
+				event.preventDefault();
+				window.scrollTo(0, $scope.data.lastYPos);
+			}
+			else {
+				$scope.data.lastYPos = window.scrollY;
+			}
+		});
+
+
+		console.log("scrollCtrl");
+		console.log($scope);
+	}]);
 
 
 

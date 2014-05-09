@@ -6,15 +6,10 @@ $__blockName: 'prototype';
 	width: 100%;
 	min-height: 100%;
 	background-color: #333;
+	color: #999;
 	position: relative;
 
 	text-align: center;
-
-	&,* {
-		box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-	}
 
 	display: -webkit-box;
 	display: -moz-box;
@@ -34,10 +29,24 @@ $__blockName: 'prototype';
 	-webkit-justify-content: center;
 	justify-content: center;
 
+	&,* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+
+	& & {
+		background-color: #999;
+		color: #333;
+	}
+
+	@include m(highlight) {
+		background-color: #666;
+	}
 	@include e(name) {
 		@include fontSize(iota);
 		@include rotate(-30deg);
 		display: block;
-		color: #999;
+		color: inherit;
 	}
 }
