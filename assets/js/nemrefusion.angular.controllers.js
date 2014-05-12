@@ -1,6 +1,8 @@
 ;(function(window, document, undefined) {
 	var Nemrefusion = new namespace("Nemrefusion");
 
+
+
 	// Sticky Controller
 	Nemrefusion.Angular.controller('StickyCtrl', ['$scope', '$element', '$rootScope', function($scope, $element, $rootScope) {
 		//$scope.data = ($scope.data === undefined) ? {} : $scope.data;
@@ -16,12 +18,12 @@
 		$scope.data.originalOffsetTop = (function(){
 			var el = $element[0];
 			var offsets = el.getBoundingClientRect();
-			return offsets.top + window.scrollY;
+			return offsets.top + (window.scrollY || window.pageYOffset);
 		})();
 		$scope.data.originalOffsetLeft = (function(){
 			var el = $element[0];
 			var offsets = el.getBoundingClientRect();
-			return offsets.left + window.scrollX;
+			return offsets.left + (window.scrollX || window.pageXOffset);
 		})();
 		$scope.data.stickyTopPos = (function() {
 			var value = $element.attr('data-sticky-topoffset');
@@ -39,6 +41,7 @@
 		$scope.states.sticky = false;
 		$scope.states.rendered = false;
 		$scope.states.dataRead = false;
+		$scope.states.showSearch = false;
 
 		/* Scope Functions
 		===========================*/
@@ -48,12 +51,12 @@
 				$scope.data.originalOffsetTop = (function(){
 					var el = $element[0];
 					var offsets = el.getBoundingClientRect();
-					return offsets.top + window.scrollY;
+					return offsets.top + (window.scrollY || window.pageYOffset);
 				})();
 				$scope.data.originalOffsetLeft = (function(){
 					var el = $element[0];
 					var offsets = el.getBoundingClientRect();
-					return offsets.left + window.scrollX;
+					return offsets.left + (window.scrollX || window.pageXOffset);
 				})();
 				$scope.states.dataRead = true;
 
@@ -63,6 +66,9 @@
 				_data.logContent += "<p>visible: " + $scope.states.rendered + "</p>";
 				_data.logContent += "<p>originalOffsetTop: " + $scope.data.originalOffsetTop + "</p>";
 				_data.logContent += "<p>originalOffsetLeft: " + $scope.data.originalOffsetLeft + "</p>";
+				//_data.logContent += "<p>window.scrollY: " + window.scrollY + "</p>";
+				//_data.logContent += "<p>window.pageYOffset: " + window.pageYOffset + "</p>";
+				//_data.logContent += "<p>getBoundingClientRect: " + $element[0].getBoundingClientRect().top + "</p>";
 
 				$rootScope.$broadcast('devLog', {
 					log: "Read",
@@ -74,7 +80,7 @@
 		$scope.updateStickyStatus = function() {
 			$scope.updateStickyData();
 			var _data = {};
-			_data.windowScrollTop = window.scrollY;
+			_data.windowScrollTop = (window.scrollY || window.pageYOffset);
 			_data.diff = $scope.data.originalOffsetTop - _data.windowScrollTop - $scope.data.stickyTopPos;
 
 			if (_data.diff <= 0 && $scope.states.rendered) {
@@ -132,6 +138,15 @@
 				state: state
 			});
 		};
+		$scope.toggleSearch = function(state) {
+			state = (state === undefined) ? "toggle" : state;
+			if (state === "toggle") {
+				$scope.states.showSearch = !$scope.states.showSearch;
+			}
+			else {
+				$scope.states.showSearch = state;
+			}
+		};
 
 		/* Bindings
 		===========================*/
@@ -143,25 +158,12 @@
 		});
 		// Resize
 		angular.element(window).bind("resize",function() {
-			// still an issue on portrait change.. Aside positions wrong place above header, because of scale
-			/*
-			$scope.$apply(function() {
-				$scope.data.originalOffsetTop = (function () {
-					var el = $element[0];
-					var offsets = el.getBoundingClientRect();
-					return offsets.top + window.scrollY;
-				})();
-				$scope.updateStickyStatus();
-			});
-			*/
 			$scope.$apply(function() {
 				$scope.updateStickyStatus();
 			});
 
 		});
 
-		console.log("StickyCtrl");
-		console.log($scope);
 	}]);
 
 
@@ -223,6 +225,7 @@
 		$scope.states = {};
 		//$scope.css = ($scope.css === undefined) ? {} : $scope.css;
 		$scope.css = {};
+		$scope.css2 = {};
 		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
 		// Options
 
@@ -237,34 +240,35 @@
 
 		/* Scope Functions
 		 ===========================*/
-		/*
 		$scope.toggleScroll = function(state) {
 			state = (state === undefined) ? "toggle" : state;
+
+			/*
 			if (state === "toggle") {
 				if ($scope.css.overflow != "hidden") {
 					$scope.css.overflow = "hidden";
+					$scope.css.height = "100%";
 				}
 				else {
 					$scope.css.overflow = null;
+					$scope.css.height = null;
 				}
 			}
 			if (state === "hide") {
 				$scope.css.overflow = "hidden";
+				$scope.css.height = "100%";
 			}
 			if (state === "show") {
 				$scope.css.overflow = null;
+				$scope.css.height = null;
 			}
+			*/
 		};
-		*/
+		/*
 		$scope.toggleScroll = function(state) {
 			state = (state === undefined) ? "toggle" : state;
 			if (state === "toggle") {
-				if ($scope.css.overflow != "hidden") {
-					$scope.states.disable = true;
-				}
-				else {
-					$scope.states.disable = false;
-				}
+				$scope.states.disable = !$scope.states.disable;
 			}
 			if (state === "hide") {
 				$scope.states.disable = true;
@@ -273,6 +277,7 @@
 				$scope.states.disable = false;
 			}
 		};
+		*/
 
 		/* Bindings
 		 ===========================*/
@@ -284,6 +289,7 @@
 		});
 		// User Events
 		angular.element(window).bind('scroll', function(event) {
+			/*
 			console.log($scope.states.disable);
 			if ($scope.states.disable) {
 				event.preventDefault();
@@ -292,6 +298,7 @@
 			else {
 				$scope.data.lastYPos = window.scrollY;
 			}
+			*/
 		});
 
 

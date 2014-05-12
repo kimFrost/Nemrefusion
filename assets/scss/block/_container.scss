@@ -17,6 +17,7 @@ $__gutterWidth: 20px;
 	}
 	@include m(line) {
 		border-bottom: 1px solid $color_lightgray;
+		background-color: $color_white;
 		padding-bottom: 20px;
 	}
 	@include e(inner) {

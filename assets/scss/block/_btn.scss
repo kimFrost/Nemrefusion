@@ -1,0 +1,73 @@
+
+$__blockName: 'btn';
+
+$__btnHeight: 40px;
+$__btnCornerRadius: 20px;
+
+
+/*CACTUSPILOT:OPEN*/
+
+/*MODULE:OPEN*//*
+#{$__blockName}
+*//*MODULE:CLOSE*/
+
+/*DESC:OPEN*//*
+This is a "#{$__blockName}" module.
+*//*DESC:CLOSE*/
+
+/*MARKUP:OPEN*//*
+<div class="#{$__blockName}">
+	<div class="btn__text">Btn module</div>
+</div>
+*//*MARKUP:CLOSE*/
+
+/*CACTUSPILOT:CLOSE*/
+
+
+@include block($__blockName) {
+	@include fontSize(gamma, 0);
+	@include border-radius($__btnCornerRadius, $__btnCornerRadius, $__btnCornerRadius, $__btnCornerRadius);
+	@include gradient($color_lightgray, $color_lightgray, darken($color_lightgray, 5%), vertical, 55%, 95%);
+	color: $color_textdarkgray;
+	padding: 0px $__btnCornerRadius;
+	height: $__btnHeight;
+	line-height: $__btnHeight;
+	font-family: $font_gudea;
+	font-weight: bold;
+	border-top: 1px solid lighten($color_lightgray, 10%);
+	border-bottom: 1px solid darken($color_lightgray, 15%);
+	cursor: pointer;
+	display: block;
+	text-transform: uppercase;
+	&,* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+	&:hover {
+		@include gradient(lighten($color_lightgray, 5%), lighten($color_lightgray, 5%), $color_lightgray, vertical, 55%, 95%);
+	}
+	&:active {
+		@include gradient(darken($color_lightgray, 5%), darken($color_lightgray, 5%), $color_lightgray, vertical, 5%, 45%);
+		border-top: 1px solid darken($color_lightgray, 15%);
+		border-bottom: 1px solid lighten($color_lightgray, 10%);
+	}
+
+	// Themes
+	@include m(orange) {
+		@include gradient($color_summerorrange, $color_summerorrange, darken($color_summerorrange, 5%), vertical, 55%, 95%);
+		color: $color_white;
+		border-top: 1px solid lighten($color_summerorrange, 10%);
+		border-bottom: 1px solid darken($color_summerorrange, 15%);
+		&:hover {
+			@include gradient(lighten($color_summerorrange, 5%), lighten($color_summerorrange, 5%), $color_summerorrange, vertical, 55%, 95%);
+		}
+		&:active {
+			@include gradient(darken($color_summerorrange, 5%), darken($color_summerorrange, 5%), $color_summerorrange, vertical, 5%, 45%);
+			border-top: 1px solid darken($color_summerorrange, 15%);
+			border-bottom: 1px solid lighten($color_summerorrange, 10%);
+		}
+	}
+
+}
+

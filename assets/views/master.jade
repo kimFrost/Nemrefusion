@@ -5,17 +5,18 @@ html(data-ng-app="nemrefusion")
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 user-scalable=no")
 		//meta(name="viewport", content="width=device-width, initial-scale=1")
-		link(rel='stylesheet', href='http://fast.fonts.net/cssapi/1e457648-3309-409a-bd99-0042ef6cab84.css')
 		link(rel='stylesheet', href='/css/nemrefusion.css')
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Gudea:400,700,400italic')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css')
 		// Main app js
 		script(src='/scripts/head.js')
 		block head
-	body(data-ng-controller="ScrollCtrl", data-ng-style="css")
+	body
 		block body
-		section.nemrefusion(data-ng-style="css")
+		section.nemrefusion(data-ng-controller="ScrollCtrl", data-ng-style="css")
 			block glovalVars
 
-			//div.dev(data-ng-controller="devCtrl")
+			div.dev(data-ng-controller="devCtrl")
 				div.dev__log(data-ng-repeat="log in data.logList track by $index", data-ng-click="showLog(log.id)", data-ng-class="{'dev__log--active': log.id === data.logActiveId}") {{log.log}} {{log.name}} {{log.id}}
 				div.dev__modal(data-ng-class="{'dev__modal--show': states.logShow}")
 					div(ng-bind-html="data.logContent")
@@ -31,10 +32,20 @@ html(data-ng-app="nemrefusion")
 									div.prototype(style="width: 330px;height: 50px;")
 										div.prototype__name Logo
 
+
 				nav.container.container--line.header__sticky(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="0")
 					div.container__content
 						div.container__inner
-							div.prototype
+							ul.inlinelist
+								li.inlinelist__item
+									div.prototype(style="width:600px;")
+										div.prototype__name Menu
+								li.inlinelist__item
+									a.btn.btn--orange Gå til indberetning
+								li.inlinelist__item
+									div.prototype(data-ng-click="toggleSearch()", data-ng-class="{'prototype--highlight': states.showSearch}")
+										div.prototype__name Søg
+							//div.prototype
 								div.prototype__name Menu
 							//ul.inlinelist
 								li.inlinelist__item Hvad er nemrefusion?
@@ -43,9 +54,14 @@ html(data-ng-app="nemrefusion")
 								li.inlinelist__item Nyheder og support
 								li.inlinelist__item Gå til indberetning
 								li.inlinelist__item Søg
+					div.header__search(data-ng-class="{'header__search--show': states.showSearch}")
+						div.container
+							div.container__content
+								div.container__inner Søgning
+									div(data-ng-click="toggleSearch(false)") x
 
 
-			div.header.query--tablet.query--mobile
+			//div.header.query--tablet.query--mobile
 				nav.container.container--line.header__sticky(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="0")
 					div.container__content
 						div.container__inner
@@ -53,9 +69,13 @@ html(data-ng-app="nemrefusion")
 								div.prototype__name m
 							div.prototype(style="width:150px; height: 50px;")
 								div.prototype__name Logo
+					div.header__search(data-ng-class="{'header__search--show': states.showSearch}")
+						div.container
+							div.container__content
+								div.container__inner Søgning
 
 
-			div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
+			//div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
 				//div.foxhound__switch(data-ng-click="toggleShow()")
 				div.prototype
 					div.container
@@ -64,8 +84,8 @@ html(data-ng-app="nemrefusion")
 								div.prototype(style="height:400px;")
 									div.prototype__name Foxhound
 
-			block content
 
+			block content
 
 			div.prototype(style="height: 300px; width: 100%;")
 				div.prototype__name Footer

@@ -7,5 +7,20 @@ block append body
 block append content
 
 	section.container
-		div.container__inner
-			Test page
+		div.container__content
+			div.container__inner
+				div.content
+
+					div.content__aside.query.query--desktop
+						div.findme(data-ng-controller="StickyCtrl", data-ng-style="css", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="90")
+							div.prototype(style="height: 300px;")
+								div.prototype__name Left Menu
+
+					div.content__main
+						div.content__partial
+							div.prototype(style="height: 900px;")
+								div.prototype__name Main Content
+						div.content__partial
+							div.prototype(style="height: 400px;")
+								div.prototype__name Main Content
+									//Har ikke problemer med touch events scroll. Der opdaterer det fint. Det er mere når reloader sitet

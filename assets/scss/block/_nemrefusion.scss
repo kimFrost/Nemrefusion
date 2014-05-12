@@ -8,7 +8,7 @@ $__blockName: 'nemrefusion';
 	width: 100%;
 	min-height: 100%;
 	position: relative;
-	font-family: $font_didotRegular;
+	font-family: $font_basic;
 	@include onlyInDebug() {
 		background: red;
 		@include mediaQueries(tablet){
@@ -25,15 +25,15 @@ $__blockName: 'nemrefusion';
 	}
 	a {
 		outline: 0;
-		border: 0;
-		color: $color_textblack;
+		//border: 0;
+		//color: $color_textblack;
 		text-decoration: none;
-		font-family: inherit;
+		//font-family: inherit;
 		&:hover {
-			color: lighten($color_textblack, 10%);
+			//color: lighten($color_textblack, 10%);
 		}
 		&:active {
-			color: lighten($color_textblack, 5%);
+			//color: lighten($color_textblack, 5%);
 		}
 	}
 	img {

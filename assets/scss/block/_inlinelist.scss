@@ -5,6 +5,48 @@ $__blockName: 'inlinelist';
 	list-style: none;
 	padding: 0;
 	margin: 0;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-box-align: center;
+	-webkit-flex-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+
+	//-webkit-box-pack: center;
+	//-moz-box-pack: center;
+	//-ms-flex-pack: center;
+	//-webkit-justify-content: center;
+	//justify-content: center;
+
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	@include e(list) {
+		display: block;
+	}
+	@include e(item) {
+		display: block;
+		padding: 0;
+		float: left;
+		& + & {
+			padding-left: 5px;
+		}
+	}
+}
+
+/*
+@include block($__blockName) {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 	display: block;
 	&:after {
 		content: "";
@@ -26,4 +68,4 @@ $__blockName: 'inlinelist';
 		}
 	}
 }
-
+*/
