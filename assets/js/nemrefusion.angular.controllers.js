@@ -142,10 +142,17 @@
 			state = (state === undefined) ? "toggle" : state;
 			if (state === "toggle") {
 				$scope.states.showSearch = !$scope.states.showSearch;
+				$rootScope.$broadcast('overlay__toggleOverlay', {
+					state: $scope.states.showSearch
+				});
 			}
 			else {
 				$scope.states.showSearch = state;
+				$rootScope.$broadcast('overlay__toggleOverlay', {
+					state: state
+				});
 			}
+
 		};
 
 		/* Bindings
@@ -301,12 +308,48 @@
 			*/
 		});
 
-
-		console.log("scrollCtrl");
-		console.log($scope);
 	}]);
 
 
+	// Scroll Controller (For disable scroll with overflow hidden)
+	Nemrefusion.Angular.controller('overlayCtrl', ['$scope', '$element', '$rootScope', function($scope, $element, $rootScope) {
+		$scope.data = {};
+		$scope.states = {};
+		$scope.css = {};
+		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
+		// Options
+
+		// Data
+
+		// States
+		$scope.states.show = false;
+
+		// CSS
+
+
+		/* Scope Functions
+		 ===========================*/
+		$scope.toggleOverlay = function(state) {
+			state = (state === undefined) ? "toggle" : state;
+			if (state === "toggle") {
+				$scope.states.show = !$scope.states.show;
+			}
+			else {
+				$scope.states.show = state;
+			}
+		};
+
+		/* Bindings
+		 ===========================*/
+		// Scope Events
+		$rootScope.$on('overlay__toggleOverlay',function(event, data) {
+			if (data != undefined && data.state != undefined) {
+				$scope.toggleOverlay(data.state);
+			}
+		});
+		// User Events
+
+	}]);
 
 
 

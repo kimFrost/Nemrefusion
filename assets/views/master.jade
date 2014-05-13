@@ -32,8 +32,11 @@ html(data-ng-app="nemrefusion")
 									div.prototype(style="width: 330px;height: 50px;")
 										div.prototype__name Logo
 
+			div.overlay(data-ng-controller="overlayCtrl", data-ng-class="{'overlay--show':states.show}")
 
-				nav.container.container--line.header__sticky(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="0")
+
+			div.sticky.sticky--header.query--desktop(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="0")
+				nav.container.container--line
 					div.container__content
 						div.container__inner
 							ul.inlinelist
@@ -54,14 +57,14 @@ html(data-ng-app="nemrefusion")
 								li.inlinelist__item Nyheder og support
 								li.inlinelist__item Gå til indberetning
 								li.inlinelist__item Søg
-					div.header__search(data-ng-class="{'header__search--show': states.showSearch}")
+					div.sticky__search(data-ng-class="{'sticky__search--show': states.showSearch}")
 						div.container
 							div.container__content
 								div.container__inner Søgning
 									div(data-ng-click="toggleSearch(false)") x
 
 
-			//div.header.query--tablet.query--mobile
+			div.header.query--tablet.query--mobile
 				nav.container.container--line.header__sticky(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="0")
 					div.container__content
 						div.container__inner
@@ -75,7 +78,7 @@ html(data-ng-app="nemrefusion")
 								div.container__inner Søgning
 
 
-			//div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
+			div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
 				//div.foxhound__switch(data-ng-click="toggleShow()")
 				div.prototype
 					div.container

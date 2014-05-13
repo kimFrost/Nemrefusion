@@ -1,0 +1,17 @@
+
+$__blockName: 'overlay';
+
+
+@include block($__blockName) {
+	@include fill();
+	@include transition(opacity 300ms ease);
+	display: block;
+	z-index: 10;
+	background-color: rgba($color_black, 0.8);
+	opacity: 0;
+	display: none;
+	@include m(show) {
+		opacity: 1;
+		display: block;
+	}
+}
