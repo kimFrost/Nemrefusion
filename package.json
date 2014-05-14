@@ -1,0 +1,11 @@
+{
+	"name": "Nemrefusion",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"connect": "x",
+		"express": "x"
+	},
+	"engine": "node >= 0.10.x"
+}
+

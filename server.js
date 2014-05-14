@@ -9,13 +9,14 @@ var application_root = __dirname,
 	spawn = require("child_process").spawn;
 
 //var databaseUrl = "memory"; // "username:password@example.com/mydb"
-var collections = ["workspaces"]
+//var collections = ["workspaces"]
 //var db = require("mongojs").connect(databaseUrl, collections);
 
 var app = express();
 
 
 // Config
+/*
 app.configure(function () {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
@@ -25,6 +26,9 @@ app.configure(function () {
 	//app.use(express.static(__dirname + '/'));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
+*/
+
+app.use(express.static(path.join(application_root, "/")));
 
 
 //Accept-Ranges
@@ -282,6 +286,6 @@ app.post('/insertmongouser', function (req, res){
 
 
 app.init();
-
-app.listen(1212);
-console.log("Listening on port :1212");
+var server = app.listen(1212, function() {
+	console.log("Listening on port :1212");
+});
