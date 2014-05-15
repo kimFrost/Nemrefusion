@@ -20,7 +20,7 @@ $__stickyHeight: 60px;
 		top: 0;
 	}
 	@include m(header) {
-		top: 140px;
+		top: 101px;
 	}
 	@include e(search) {
 		@include transform-origin(0%, 0%);

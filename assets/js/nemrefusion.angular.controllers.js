@@ -175,6 +175,113 @@
 
 
 
+	// Primmenu Controller
+	Nemrefusion.Angular.controller('PrimmenuCtrl', ['$scope', '$element', '$rootScope', '$timeout', function($scope, $element, $rootScope, $timeout) {
+		$scope.data = ($scope.data === undefined) ? {} : $scope.data;
+		$scope.states = ($scope.states === undefined) ? {} : $scope.states;
+		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
+		$scope.css = ($scope.css === undefined) ? {} : $scope.css;
+
+		// Options
+		$scope.options.indicatorTimeReset = 500;
+
+		// Data
+		$scope.data.timerId = null;
+
+		// States
+		$scope.states.activemenu = "";
+		$scope.states.showIndicator = false;
+
+		// Indicator
+		$scope.indicator = {
+			options: {},
+			data: {
+				preSetPosition: null
+			},
+			states: {},
+			css: {
+				left: "0px"
+			}
+		};
+
+		/*
+		 -moz-transform: translate(0%, 0%);
+		 -ms-transform: translate(0%, 0%);
+		 -webkit-transform: translate(0%, 0%);
+		 transform: translate(0%, 0%);
+		 */
+
+		/* Scope Functions
+		===========================*/
+		$scope.moveIndicator = function(left, preSetActive) {
+			$timeout.cancel($scope.data.timerId);
+			$scope.indicator.css.left = left.toString() + "px";
+			if (!$scope.states.showIndicator) $scope.states.showIndicator = true;
+			if (preSetActive === true) {
+				$scope.indicator.data.preSetPosition = left;
+			}
+		};
+		$scope.resetIndicator = function() {
+			$scope.data.timerId = $timeout(function() {
+				$scope.indicator.css.left = $scope.indicator.data.preSetPosition.toString()+"px";
+			}, $scope.options.indicatorTimeReset);
+		}
+
+
+		/* Bindings
+		===========================*/
+
+	}]);
+
+
+	// PrimmenuItem Controller
+	Nemrefusion.Angular.controller('PrimmenuItemCtrl', ['$scope', '$element', '$rootScope', function($scope, $element, $rootScope) {
+		$scope.data = {};
+		$scope.states = ($scope.states === undefined) ? {} : $scope.states;
+		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
+		$scope.css = ($scope.css === undefined) ? {} : $scope.css;
+		// Options
+
+		// Data
+		$scope.data.leftPos = $element[0].getBoundingClientRect().left + ($element[0].getBoundingClientRect().width / 2) - $element[0].parentNode.getBoundingClientRect().left;
+		$scope.data.preSetActive = $element.hasClass('primmenu__item--active');
+
+		// States
+
+		// Css
+
+
+
+		/*
+		 -moz-transform: translate(0%, 0%);
+		 -ms-transform: translate(0%, 0%);
+		 -webkit-transform: translate(0%, 0%);
+		 transform: translate(0%, 0%);
+		 */
+
+		/* Scope Functions
+		 ===========================*/
+
+		/* Bindings
+		 ===========================*/
+		$element.bind('mouseenter', function()  {
+			$scope.$apply(function() {
+				$scope.moveIndicator($scope.data.leftPos);
+			});
+		});
+
+		$element.bind('mouseleave', function()  {
+			$scope.$apply(function() {
+				$scope.resetIndicator();
+			});
+		});
+
+		if ($scope.data.preSetActive) {
+			$scope.moveIndicator($scope.data.leftPos, true);
+		}
+
+	}]);
+
 
 
 	// Foxhound Controller

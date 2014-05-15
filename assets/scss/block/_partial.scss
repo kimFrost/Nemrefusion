@@ -1,0 +1,29 @@
+
+$__blockName: 'partial';
+
+
+@include block($__blockName) {
+	width: 100%;
+	display: block;
+	padding-bottom: 20px;
+	background-color: $color_white;
+	color: $color_textblack;
+	@include m(blue) {
+		background-color: $color_babyblue;
+		color: $color_textblack;
+	}
+	@include m(lightgray) {
+		background-color: $color_lightgray;
+		color: $color_textblack;
+	}
+	@include m(black) {
+		background-color: $color_black;
+		color: $color_textwhite;
+	}
+	@include m(lagoon) {
+		background-color: $color_lagoonblue;
+		color: $color_textwhite;
+	}
+
+}
+

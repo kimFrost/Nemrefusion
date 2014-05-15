@@ -18,7 +18,13 @@ $__gutterWidth: 20px;
 	@include m(line) {
 		border-bottom: 1px solid $color_lightgray;
 		background-color: $color_white;
-		padding-bottom: 20px;
+		padding-bottom: 10px;
+	}
+	@include m(nopadding) {
+		padding-bottom: 0;
+	}
+	@include m(paddingtop) {
+		padding-top: 10px;
 	}
 	@include e(inner) {
 		position: relative;

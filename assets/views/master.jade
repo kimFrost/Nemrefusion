@@ -23,23 +23,23 @@ html(data-ng-app="nemrefusion")
 					div.dev__modalclose(data-ng-click="hideLog()") x
 
 			header.header.query--desktop
-				div.container.container--line
+				div.container.container--line.container--nopadding
 					div.container__content
 						div.container__inner
 							div.header__upper
-								a.logo
-									//img(src="http://placehold.it/150x70", alt="Nem Refusion")
-									div.prototype(style="width: 330px;height: 50px;")
+								a.logo(href="#")
+									img(src="/img/graphic/logo.png", alt="Nem Refusion")
+									//div.prototype(style="width: 330px;height: 50px;")
 										div.prototype__name Logo
 
 			div.overlay(data-ng-controller="overlayCtrl", data-ng-class="{'overlay--show':states.show}")
 
 
 			div.sticky.sticky--header.query--desktop(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="0")
-				nav.container.container--line
+				nav.container.container--line.container--paddingtop
 					div.container__content
 						div.container__inner
-							ul.inlinelist
+							//ul.inlinelist
 								li.inlinelist__item
 									div.prototype(style="width:600px;")
 										div.prototype__name Menu
@@ -50,13 +50,20 @@ html(data-ng-app="nemrefusion")
 										div.prototype__name Søg
 							//div.prototype
 								div.prototype__name Menu
-							//ul.inlinelist
-								li.inlinelist__item Hvad er nemrefusion?
-								li.inlinelist__item Sådan indberetter du
-								li.inlinelist__item Nyttig information
-								li.inlinelist__item Nyheder og support
-								li.inlinelist__item Gå til indberetning
-								li.inlinelist__item Søg
+							ul.inlinelist.primmenu(data-ng-controller="PrimmenuCtrl")
+								li.inlinelist__item.primmenu__item.primmenu__item--active(data-ng-controller="PrimmenuItemCtrl")
+									a Hvad er nemrefusion?
+								li.inlinelist__item.primmenu__item(data-ng-controller="PrimmenuItemCtrl")
+									a Sådan indberetter du
+								li.inlinelist__item.primmenu__item(data-ng-controller="PrimmenuItemCtrl")
+									a Nyttig information
+								li.inlinelist__item.primmenu__item(data-ng-controller="PrimmenuItemCtrl")
+									a Nyheder og support
+								li.inlinelist__item.primmenu__item
+									a.btn.btn--orange Gå til indberetning
+								li.inlinelist__item.primmenu__item(data-ng-controller="PrimmenuItemCtrl", data-ng-class="{'primmenu__item--active': states.showSearch}")
+									a(data-ng-click="toggleSearch()") Søg
+								div.primmenu__indicator(data-ng-style="indicator.css", data-ng-class="{'primmenu__indicator--show': states.showIndicator}")
 					div.sticky__search(data-ng-class="{'sticky__search--show': states.showSearch}")
 						div.container
 							div.container__content

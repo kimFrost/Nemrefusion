@@ -19,7 +19,8 @@ $__blockName: 'content';
 		}
 	}
 	@include e(partial) {
-		margin-bottom: 20px;
+		//margin-bottom: 20px;
+		padding-bottom: 20px;
 	}
 }
 
