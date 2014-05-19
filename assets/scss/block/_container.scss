@@ -10,6 +10,11 @@ $__gutterWidth: 20px;
 	@include onlyInDebug() {
 		background-color: bisque;
 	}
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
 	&,* {
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -29,6 +34,7 @@ $__gutterWidth: 20px;
 	@include e(inner) {
 		position: relative;
 		width: 100%;
+		overflow: hidden;
 		&:after {
 			content: "";
 			display: block;

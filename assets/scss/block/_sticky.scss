@@ -1,6 +1,8 @@
 
 $__blockName: 'sticky';
 
+//variable-exists() // true / false
+
 $__stickyHeight: 60px;
 
 
@@ -16,11 +18,23 @@ $__stickyHeight: 60px;
 		-webkit-box-sizing: border-box;
 	}
 	@include m(fixed) {
-		position: fixed;
-		top: 0;
+		@if $useAdaptive == true {
+			position: fixed;
+			top: 0;
+		}
+		@else {
+			top: auto !important;
+		}
+	}
+	@include m(leftmenu) {
+		height: auto;
+		z-index: 1;
 	}
 	@include m(header) {
 		top: 101px;
+		@if $useAdaptive == false {
+			top: 101px !important;
+		}
 	}
 	@include e(search) {
 		@include transform-origin(0%, 0%);
@@ -30,6 +44,7 @@ $__stickyHeight: 60px;
 		top: 100%;
 		height: $__headerSearchHeight;
 		left: 0;
+		//right: 0;
 		width: 100%;
 		z-index: -1;
 		background-color: $color_white;

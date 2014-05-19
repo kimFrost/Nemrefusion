@@ -2,7 +2,7 @@
 /* Global Variables */
 
 // Options booleans
-$useAdaptive: true !global; // Media Querie mixin will skip if this ain't true
+$useAdaptive: false !global; // Media Querie mixin will skip if this ain't true
 $debug: false !global; // Show debug features
 $showClasses: false !global; // Show debug features
 $allowCrossAlter: true !global; // Allow modules to alter each other // DEPRECATED --> Replaced by new blockconstructor extendmode function
@@ -20,7 +20,6 @@ $color_babyblue: #eef5f9;
 $color_textdarkgray: #474747;
 $color_lightgray: #ebebeb;
 $color_superlightgray: #f6f6f6;
-
 
 
 
