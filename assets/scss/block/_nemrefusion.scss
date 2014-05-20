@@ -1,6 +1,8 @@
 
 $__blockName: 'nemrefusion';
 
+$__gutterWidth: 20px;
+
 @include block($__blockName) {
 	@include gradient(#f6f6f6, $color_white, #f6f6f6);
 	//overflow: auto;
@@ -9,6 +11,14 @@ $__blockName: 'nemrefusion';
 	min-height: 100%;
 	position: relative;
 	font-family: $font_basic;
+	min-width: $contentWidth + ($__gutterWidth * 2);
+	// Media Queries (nemrefusion)
+	@include mediaQueries(tablet){
+		min-width: $contentWidth + ($__gutterWidth * 2);
+	};
+	@include mediaQueries(mobile){
+		min-width: 100%;
+	};
 	@include onlyInDebug() {
 		background: red;
 		@include mediaQueries(tablet){

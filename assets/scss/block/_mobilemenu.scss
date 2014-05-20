@@ -1,0 +1,29 @@
+
+$__blockName: 'mobilmenu';
+
+
+@include block($__blockName) {
+	@include fill();
+	display: block;
+	@include e(lv1 lv2) {
+		display: block;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		width: 100%;
+	}
+	@include e(lv1) {
+
+	}
+	@include e(lv2) {
+
+	}
+	@include e(item) {
+		display: block;
+		width: 100%;
+		@include m(category) {
+
+		}
+	}
+}
+

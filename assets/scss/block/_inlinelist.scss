@@ -30,6 +30,9 @@ $__blockName: 'inlinelist';
 		display: block;
 		clear: both;
 	}
+	@include m(aligntop) {
+		display: block;
+	}
 	@include e(list) {
 		display: block;
 	}

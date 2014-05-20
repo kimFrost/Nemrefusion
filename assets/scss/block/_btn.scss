@@ -37,7 +37,8 @@ This is a "#{$__blockName}" module.
 	border-top: 1px solid lighten($color_lightgray, 10%);
 	border-bottom: 1px solid darken($color_lightgray, 15%);
 	cursor: pointer;
-	display: block;
+	//display: block;
+	display: inline-block;
 	text-transform: uppercase;
 	&,* {
 		box-sizing: border-box;

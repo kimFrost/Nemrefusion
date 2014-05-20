@@ -1,6 +1,8 @@
 
 $__blockName: 'icon';
 
+$__iconMap: (glass: "\f000", circle: "\f111");
+
 
 
 /*CACTUSPILOT:OPEN*/
@@ -22,58 +24,40 @@ This is a "#{$__blockName}" module.
 /*CACTUSPILOT:CLOSE*/
 
 
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('/fonts/fontawesome-webfont.eot?');
+	src: url('/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+	url('/fonts/fontawesome-webfont.woff?') format('woff'),
+	url('/fonts/fontawesome-webfont.ttf?') format('truetype'),
+	url('/fonts/fontawesome-webfont.svg?#fontawesomeregular') format('svg');
+	//src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 @include block($__blockName) {
-	@include border-radius(50%, 50%, 50%, 50%);
-	background-color: $color_textgrey;
-	padding: 10px;
-	height: 22px;
-	width: 22px;
-	display: block;
-	position: relative;
-	box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	-webkit-box-sizing: content-box;
-	background-repeat: no-repeat;
-	background-position: center center;
-	&:hover {
-		background-color: lighten($color_textgrey, 10%);
+	@at-root [class^="icon--"] {
+		display: inline-block;
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		&:before {
+			display: block;
+		}
 	}
-	&:active {
-		background-color: darken($color_textgrey, 10%);
-	}
-	@include m(facebook) {
-		background-image: url(../img/icons/icon_facebook.png);
-	}
-	@include m(instagram) {
-		background-image: url(../img/icons/icon_instragram.png);
-	}
-	@include m(linkedin) {
-		background-image: url(../img/icons/icon_linkein.png);
-	}
-	@include m(twitter) {
-		background-image: url(../img/icons/icon_twitter.png);
-	}
-	@include m(pinterest) {
-		background-image: url(../img/icons/icon_pinterest.png);
-	}
-	@include m(foursquare) {
-		background-image: url(../img/icons/icon_foursquare.png);
-	}
-	@include e(item) {
-		width: 10px;
-		height: 10px;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: red;
-		@include m(bottomstate) {
-			bottom: 0;
-			top: auto;
-			@include m(subState) {
-				right: 0;
-				left: auto;
+	@each $key, $content in $__iconMap {
+		@include m($key) {
+			&:before {
+				display: block;
+				content: $content;
 			}
 		}
 	}
 }
+
 

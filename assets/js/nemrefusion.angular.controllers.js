@@ -226,10 +226,17 @@
 				$scope.indicator.css.left = $scope.indicator.data.preSetPosition.toString()+"px";
 			}, $scope.options.indicatorTimeReset);
 		}
+		$scope.lockIndicator = function() {
+			//console.log("LOCK");
+		};
+		$scope.releaseIndicator = function() {
+			//console.log("RELEASE");
+		};
 
 
 		/* Bindings
 		===========================*/
+
 
 	}]);
 
@@ -266,6 +273,7 @@
 		 ===========================*/
 		$element.bind('mouseenter', function()  {
 			$scope.$apply(function() {
+				$scope.data.leftPos = $element[0].getBoundingClientRect().left + ($element[0].getBoundingClientRect().width / 2) - $element[0].parentNode.getBoundingClientRect().left;
 				$scope.moveIndicator($scope.data.leftPos);
 			});
 		});

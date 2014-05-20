@@ -1,0 +1,33 @@
+
+$__blockName: 'list';
+
+@include block($__blockName) {
+	display: block;
+	width: 100%;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	@include e(headline) {
+		@include fontSize(epsilon);
+		font-family: $font_gudea;
+		font-weight: bold;
+		width: 100%;
+	}
+	@include e(item) {
+		@include fontSize(delta);
+		font-family: $font_gudea;
+		font-weight: normal;
+		width: 100%;
+		background-repeat: no-repeat;
+		background-position: left center;
+		&:before {
+			@include fontSize(eta);
+			content: "\2022";
+			font-family: $font_gudea;
+			font-weight: bold;
+			padding-right: 5px;
+			color: $color_summerorrange;
+		}
+	}
+}
+

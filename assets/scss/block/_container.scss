@@ -6,7 +6,7 @@ $__gutterWidth: 20px;
 	width: 100%;
 	padding-right: $__gutterWidth;
 	padding-left: $__gutterWidth;
-	min-width: $contentWidth + ($__gutterWidth * 2);
+	//min-width: $contentWidth + ($__gutterWidth * 2);
 	@include onlyInDebug() {
 		background-color: bisque;
 	}
@@ -34,7 +34,6 @@ $__gutterWidth: 20px;
 	@include e(inner) {
 		position: relative;
 		width: 100%;
-		overflow: hidden;
 		&:after {
 			content: "";
 			display: block;
@@ -50,6 +49,11 @@ $__gutterWidth: 20px;
 		@include onlyInDebug() {
 			background-color: goldenrod;
 		}
+		@include m(line) {
+			border-bottom: 1px solid $color_lightgray;
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+		}
 		@include m(full) {
 			width: 100%;
 		}
@@ -57,17 +61,16 @@ $__gutterWidth: 20px;
 			width: $contentWidth;
 		};
 		@include mediaQueries(mobile){
-			//width: $contentWidth;
 			width: 100%;
 		};
 	}
 	// Media Queries (container)
 	@include mediaQueries(tablet){
-		min-width: $contentWidth + ($__gutterWidth * 2);
+		//min-width: $contentWidth + ($__gutterWidth * 2);
 	};
 	@include mediaQueries(mobile){
 		//min-width: $contentWidth + $__gutterWidth;
-		min-width: 100%;
+		//min-width: 100%;
 	};
 }
 

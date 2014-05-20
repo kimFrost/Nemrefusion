@@ -32,22 +32,23 @@ html(data-ng-app="nemrefusion")
 									//div.prototype(style="width: 330px;height: 50px;")
 										div.prototype__name Logo
 
-			div.overlay.container(data-ng-controller="overlayCtrl", data-ng-class="{'overlay--show':states.show}")
+
+			header.header.query--tablet.query--mobile
+				div.container.container--line.container--nopadding
+					div.container__content
+						div.container__inner
+							div.header__upper
+								a.logo(href="#")
+									img(src="/img/graphic/logo.png", alt="Nem Refusion")
+
+
+			div.overlay(data-ng-controller="overlayCtrl", data-ng-class="{'overlay--show':states.show}")
 
 
 			div.sticky.sticky--header.query--desktop(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="0")
 				nav.container.container--line.container--paddingtop
 					div.container__content
 						div.container__inner
-							//ul.inlinelist
-								li.inlinelist__item
-									div.prototype(style="width:600px;")
-										div.prototype__name Menu
-								li.inlinelist__item
-									a.btn.btn--orange Gå til indberetning
-								li.inlinelist__item
-									div.prototype(data-ng-click="toggleSearch()", data-ng-class="{'prototype--highlight': states.showSearch}")
-										div.prototype__name Søg
 							//div.prototype
 								div.prototype__name Menu
 							ul.inlinelist.primmenu(data-ng-controller="PrimmenuCtrl")
@@ -62,49 +63,131 @@ html(data-ng-app="nemrefusion")
 								li.inlinelist__item.primmenu__item
 									a.btn.btn--orange Gå til indberetning
 								li.inlinelist__item.primmenu__item(data-ng-controller="PrimmenuItemCtrl", data-ng-class="{'primmenu__item--active': states.showSearch}")
-									a(data-ng-click="toggleSearch()") Søg
+									a(data-ng-click="toggleSearch(); lockIndicator()") Søg
 								div.primmenu__indicator(data-ng-style="indicator.css", data-ng-class="{'primmenu__indicator--show': states.showIndicator}")
 					div.container.sticky__search(data-ng-class="{'sticky__search--show': states.showSearch}")
 						div.container__content
 							div.container__inner Søgning
-								div(data-ng-click="toggleSearch(false)") x
+								div(data-ng-click="toggleSearch(false); releaseIndicator()") x
 
 
-			div.header.query--tablet.query--mobile
-				nav.container.container--line.header__sticky(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'header__sticky--fixed': states.sticky}", data-sticky-topoffset="0")
+
+			div.sticky.sticky--header.query--tablet.query--mobile(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="0")
+				nav.container.container--line.container--paddingtop
 					div.container__content
 						div.container__inner
-							div.prototype(style="width:50px; height: 50px; float:left; margin-right: 20px;", data-ng-click="toggleMobileMenu()")
-								div.prototype__name m
-							div.prototype(style="width:150px; height: 50px;")
-								div.prototype__name Logo
-					div.header__search(data-ng-class="{'header__search--show': states.showSearch}")
-						div.container
-							div.container__content
-								div.container__inner Søgning
+							//div.prototype
+								div.prototype__name Menu
+							ul.inlinelist.primmenu(data-ng-controller="PrimmenuCtrl")
+								li.inlinelist__item.primmenu__item(data-ng-click="toggleMobileMenu()")
+									a Menu
+								li.inlinelist__item.primmenu__item
+									a.btn.btn--orange Gå til indberetning
+								li.inlinelist__item.primmenu__item(data-ng-class="{'primmenu__item--active': states.showSearch}")
+									a(data-ng-click="toggleSearch(); lockIndicator()") Søg
+								div.primmenu__indicator(data-ng-style="indicator.css", data-ng-class="{'primmenu__indicator--show': states.showIndicator}")
+					div.container.sticky__search(data-ng-class="{'sticky__search--show': states.showSearch}")
+						div.container__content
+							div.container__inner Søgning
+								div(data-ng-click="toggleSearch(false); releaseIndicator()") x
+
 
 
 			div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
+				div.mobilemenu
+					ul.mobilemenu__lv1
+						li.mobilemenu__item
+							a 1
+						li.mobilemenu__item
+							a 2
+						li.mobilemenu__item
+							a 3
+							ul.mobilemenu__lv2
+								li.mobilemenu__item.mobilemenu__item--category Category
+								li.mobilemenu__item
+									a 3.1
+								li.mobilemenu__item
+									a 3.2
 				//div.foxhound__switch(data-ng-click="toggleShow()")
-				div.prototype
-					div.container
-						div.container__content
-							div.container__inner
-								div.prototype(style="height:400px;")
-									div.prototype__name Foxhound
+				| Menu
 
 
 			block content
 
 
-			//section.partial.partial--lightgray
-				div.container
-					div.container__content
-						div.container__inner Footer
+			section.partial.container
+				div.container__content.container__content--line
+					div.container__inner
+						h1.partial__headline Hvem skal indberette?
+						div.grid.grid--16
+							h2 Arbejdsgiver
+							p Med Nemrefusion skal du som selvstændig foretage digitale indberetninger af sygefravær til kommunen og barselsfravær og til Udbetaling Danmark.
+							p Med NemRefusion kan du indberette på to måder, enten via selvbetjeningsløsningen på Virk.dk eller via system-til-system adgang. Du er ikke tvunget til kun at benytte den ene indgang. Hvis dit lønsystem kan levere en del af indberetningen, kan du færdiggøre resten via webdialogen på Virk.dk.
+							p Som selvstændig skal du derfor beslutte dig for, om du vil benytte system-til-system adgangen. Hvis du vælger at bruge system-til-system adgangen, skal du i dialog med din systemleverandør, som skal tilrette dit system eller kontakte dit eventuelle lønbureau.
+							p Hvis du har en revisor, kan du give revisoren tilladelse til at indberette digitalt på dine vegne.
+						div.grid.grid--8
+							| image
 
-			section.partial.partial--lightgray.container
+				div.container__content.container__content--line
+					div.container__inner
+						div.grid.grid--8
+							| image
+						div.grid.grid--16
+							h2 Selvstændig
+							p Med Nemrefusion skal du som selvstændig foretage digitale indberetninger af sygefravær til kommunen og barselsfravær og til Udbetaling Danmark.
+							p Du skal bruge rollen "Selvstændig", hvis du skal indberette sygdom for dig selv som selvstændig erhvervsdrivende og for medarbejdende ægtefælle. Hvis du skal indberette for dine ansatte, skal du bruge rollen "Arbejdsgiver".
+							h2 Se vores nye folder til selvstændige!
+							p I folderen har vi samlet alle de vigtigste informationer og links, som selvstændige kan få brug for, når de skal igang med at benytte NemRefusion indberetningsløsningen.
+							p Folderen er også i særligt format til udskrift.
+							a.btn DOWNLOAD FOLDER
+
 				div.container__content
-					div.container__inner Footer
+					div.container__inner
+						div.grid.grid--16
+							h2 A-kasser
+							p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+							p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+						div.grid.grid--8
+							| image
+
+
+			section.partial.container.partial--superlightgray.partial--footer
+				div.container__content
+					div.container__inner
+						div.grid
+							a
+								img(src="/img/graphic/logo.png", alt="Nem Refusion")
+						div.grid.grid--6.grid--spaceright
+							ul.list
+								li.list__headline Support og Kontakt
+							p Mandag-fredag kl. 08.00 - 16.30
+							a.btn KLIK HER
+						div.grid.grid--6.grid--spaceleft.grid--spaceright
+							ul.list
+								li.list__headline Om Nemrefusion
+								li.list__item
+									a Hvad er NemRefusion
+								li.list__item
+									a Hvordan indveretter jeg?
+								li.list__item
+									a Prøv demoløsning
+						div.grid.grid--6.grid--spaceleft.grid--spaceright
+							ul.list
+								li.list__headline headline
+								li.list__item 1
+								li.list__item 2
+								li.list__item 3
+								li.list__item 4
+						div.grid.grid--6.grid--spaceleft
+							ul.list
+								li.list__headline headline
+								li.list__item 1
+								li.list__item 2
+								li.list__item 3
+								li.list__item 4
+
+
 						//div.prototype(style="height: 300px; width: 100%;")
 							div.prototype__name Footer
 
