@@ -57,7 +57,8 @@ $__gutterWidth: 20px;
 	}
 	p, h1, h2, h3, h4 {
 		margin-top: 0;
-		font-weight: normal;
+		//margin-bottom: 0;
+		//font-weight: normal;
 	}
 	p {
 		//@include fontSize(beta, 2);

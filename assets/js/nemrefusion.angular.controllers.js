@@ -292,6 +292,56 @@
 
 
 
+
+
+	// Primmenu Controller
+	Nemrefusion.Angular.controller('QnaCtrl', ['$scope', '$element', '$rootScope', '$timeout', function($scope, $element, $rootScope, $timeout) {
+		$scope.data = ($scope.data === undefined) ? {} : $scope.data;
+		$scope.states = ($scope.states === undefined) ? {} : $scope.states;
+		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
+		$scope.css = ($scope.css === undefined) ? {} : $scope.css;
+
+		// Options
+
+		// Data
+
+		// States
+
+		// Qna
+		$scope.qna = {
+			data: {
+				activeId: null
+			}
+		};
+
+		/* Scope Functions
+		 ===========================*/
+		$scope.checkActive = function(id) {
+			if (id != undefined && id === $scope.qna.data.activeId) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		};
+		$scope.toggle = function(id) {
+			if (id != undefined) {
+				if (id === $scope.qna.data.activeId) {
+					$scope.qna.data.activeId = null;
+				}
+				else {
+					$scope.qna.data.activeId = id;
+				}
+			}
+		}
+
+		/* Bindings
+		 ===========================*/
+
+	}]);
+
+
+
 	// Foxhound Controller
 	Nemrefusion.Angular.controller('FoxhoundCtrl', ['$scope', '$element', '$rootScope', function($scope, $element, $rootScope) {
 		$scope.data = ($scope.data === undefined) ? {} : $scope.data;

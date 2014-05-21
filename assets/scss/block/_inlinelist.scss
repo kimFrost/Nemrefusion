@@ -19,12 +19,6 @@ $__blockName: 'inlinelist';
 	-webkit-align-items: center;
 	align-items: center;
 
-	//-webkit-box-pack: center;
-	//-moz-box-pack: center;
-	//-ms-flex-pack: center;
-	//-webkit-justify-content: center;
-	//justify-content: center;
-
 	&:after {
 		content: "";
 		display: block;
@@ -32,6 +26,13 @@ $__blockName: 'inlinelist';
 	}
 	@include m(aligntop) {
 		display: block;
+	}
+	@include m(aligncenter) {
+		-webkit-box-pack: center;
+		-moz-box-pack: center;
+		-ms-flex-pack: center;
+		-webkit-justify-content: center;
+		justify-content: center;
 	}
 	@include e(list) {
 		display: block;

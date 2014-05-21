@@ -7,7 +7,7 @@ html(data-ng-app="nemrefusion")
 		//meta(name="viewport", content="width=device-width, initial-scale=1")
 		link(rel='stylesheet', href='/css/nemrefusion.css')
 		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Gudea:400,700,400italic')
-		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css')
+		//link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css')
 		// Main app js
 		script(src='/scripts/head.js')
 		block head
@@ -112,7 +112,141 @@ html(data-ng-app="nemrefusion")
 				| Menu
 
 
-			block content
+			section.partial.container.partial--blue.partial--noBottomPadding
+				div.container__content
+					div.container__inner
+						div.grid.grid--14.grid--spaceright
+							h1 Velkommen til NemRefusion.dk
+							p NemRefusion er en løsning for arbejdsgivere of selvstændige til indeberetning af sygedagpenge- og barseldagpenge.
+							p Her på siden kan du finde information om, hvordan du indberetter og hvilke regler der gælder.
+							p Når du er klar til at indberette, så tryk på knappen "Gå til indberetning" og du kan starte din indberetning på virk.dk.
+						div.grid.grid--10.grid--spaceleft
+							img(src="/img/content/partial_img_1.png", alt="")
+
+
+			section.partial.container.partial--black
+				div.container__content
+					div.container__inner
+						div.grid.grid--16.grid--spaceright
+							h1 Er du ny i Nem Refusion?
+							p Som arbejdsgiver er det din pligt, at indberette refusionsdagpenge igennem NemRefusion løsningen.
+							p Læs her hvad du skal have klar før du indberetter, hvilke regler der gælder og hvordan du indberetter.
+							a.btn Kom godt igang med Nemrefusion
+						div.grid.grid--8.grid--spaceleft
+							div.status.color.color--lightgray.color--bg status
+
+
+			section.partial.container
+				div.container__content
+					div.container__inner
+						div.status.color.color--blue.color--bg
+							h1 Sidste nyt
+							p Vi udsender nyheder omkring NemRefusion løsningen, når der er behov for det. Vælg hvilken sektion du har interesse i nedenfor.
+							div.cluster
+								div.cluster__list
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+
+
+
+			section.partial.container.partial--lagoon
+				div.container__content
+					div.container__inner
+						div.grid.grid--12.grid--spaceright
+							h2 Hvad er Nem Refusion?
+							p NemRefusion er en intelligent, digital postkasse som forbinder virksomheder og kommuner og optimerer fælles arbejdsgange.
+							p NemRefusion er gratis at anvende for virksomheder, selvstændige og A-kasser. Adgang til løsningen sker med NemID Medarbejdersignatur til Erhverv via Virk.dk eller direkte via virksomhedernes løn-, HR- og fraværssystemer.
+						div.grid.grid--12.grid--spaceleft.query--desktop
+							| Video
+
+
+			section.partial.container
+				div.container__content
+					div.container__inner
+						div.status.color.color--blue.color--bg
+							div.cluster
+								div.cluster__list
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											div.status__box
+												div.status__icon
+													div.icon.icon--checkcircle
+												h2 NewmRefusion
+												p Der er forbindelse til NemRefusionen.
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											div.status__box
+												div.status__icon
+													div.icon.icon--checkcircle
+												h2 CPR
+												p Der er forbindelse til CPR-registret.
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											div.status__box
+												div.status__icon
+													div.icon.icon--checkcircle
+												h2 CVR
+												p Der er forbindelse til CVR-registret.
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											div.status__box.status__box--disabled
+												div.status__icon
+													div.icon.icon--timescircle
+												h2 E-indkomst
+												p Der er ikke forbindelse til E-indkomst.
+									div.cluster__item.cluster__item--4x1
+										div.cluster__inner
+											div.status__box
+												div.status__icon
+													div.icon.icon--checkcircle
+												h2 Kommunale systemer
+												p Der er forbindelse til bagvedliggende kommunale systemer.
+
+			section.partial.container.partial--darkgray.partial--morePadding
+				div.container__content
+					div.container__inner
+						div.partial__headline Brug for hjælp?
+						ul.inlinelist.inlinelist--aligncenter
+							li.inlinelist__item
+								div.btn.btn--cut Se vores vejledninger
+							li.inlinelist__item
+								div.btn.btn--cut Se VIDEOVEJLEDNINGen på virk.dk
+							li.inlinelist__item
+								div.btn.btn--cut Prøv demoløsningen på virk.dk
+
 
 
 			section.partial.container
@@ -127,7 +261,6 @@ html(data-ng-app="nemrefusion")
 							p Hvis du har en revisor, kan du give revisoren tilladelse til at indberette digitalt på dine vegne.
 						div.grid.grid--8
 							| image
-
 				div.container__content.container__content--line
 					div.container__inner
 						div.grid.grid--8
@@ -140,7 +273,6 @@ html(data-ng-app="nemrefusion")
 							p I folderen har vi samlet alle de vigtigste informationer og links, som selvstændige kan få brug for, når de skal igang med at benytte NemRefusion indberetningsløsningen.
 							p Folderen er også i særligt format til udskrift.
 							a.btn DOWNLOAD FOLDER
-
 				div.container__content
 					div.container__inner
 						div.grid.grid--16
@@ -150,6 +282,80 @@ html(data-ng-app="nemrefusion")
 							p Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 						div.grid.grid--8
 							| image
+
+
+			section.partial.container.partial--darkgray
+				div.container__content
+					div.container__inner
+						h1.partial__headline Kom i gang med indberetning
+						div.grid.grid--12.grid--spaceright
+							h2 Få hjaelp til indberetningen
+							p Vi har samlet nogle videofilm og vejledninger, som du kan bruge til at komme godt i gang. Du kan også prøve en demo-løsning, hvor du kan prøve at teste dine indberetninger.
+							a.btn Sådan indberetter du
+						div.grid.grid--12.grid--spaceleft
+							h2 NemRefusion Support
+							p Hjælp til generelle og tekniske spørgsmål om selve indberetningsløsningen til brugere af NemRefusion - også kommunale sagsbehandlere.
+							a.btn Klik her for support
+
+
+			section.partial.container.partial--morePadding
+				div.container__content
+					div.container__inner
+						div.partial__headline Ofte stillede spørgsmål
+						div.qna(data-ng-controller="QnaCtrl")
+							div.qna__intro
+								h2 QnA headline
+								p QnA Text
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(1)}")
+								div.qna__toggle(data-ng-click="toggle(1)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(1)")
+									h3 Head 1
+								div.qna__itemBody
+									include blocks/lorem
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(2)}")
+								div.qna__toggle(data-ng-click="toggle(2)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(2)")
+									h3 Head 2
+								div.qna__itemBody
+									include blocks/lorem
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(3)}")
+								div.qna__toggle(data-ng-click="toggle(3)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(3)")
+									h3 Head 3
+								div.qna__itemBody
+									include blocks/lorem
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(4)}")
+								div.qna__toggle(data-ng-click="toggle(4)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(4)")
+									h3 Head 4
+								div.qna__itemBody
+									include blocks/lorem
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(5)}")
+								div.qna__toggle(data-ng-click="toggle(5)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(5)")
+									h3 Head 5
+								div.qna__itemBody
+									include blocks/lorem
+
+						div.partial__center
+							a.btn Se flere spørgsmål
+
+
+
+			section.partial.container.partial--blue
+				div.container__content
+					div.container__inner
+						div.grid.grid--12.grid--spaceright
+							| image
+						div.grid.grid--12.grid--spaceleft
+							h1 Tilmeld informationsmail
+							p Informationsmailen vil blive udsendt, når der er information om eksempelvis ny lovgivning, ændrede snitfladebeskrivelser eller nye versioner af løsningen.
+							a.btn Tilmeld
 
 
 			section.partial.container.partial--superlightgray.partial--footer
@@ -192,6 +398,7 @@ html(data-ng-app="nemrefusion")
 							div.prototype__name Footer
 
 
+			block content
 
 
 		script(src='/scripts/nemrefusion.js')

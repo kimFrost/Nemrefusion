@@ -37,9 +37,11 @@ This is a "#{$__blockName}" module.
 	border-top: 1px solid lighten($color_lightgray, 10%);
 	border-bottom: 1px solid darken($color_lightgray, 15%);
 	cursor: pointer;
-	//display: block;
 	display: inline-block;
 	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	&,* {
 		box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -52,6 +54,12 @@ This is a "#{$__blockName}" module.
 		@include gradient(darken($color_lightgray, 5%), darken($color_lightgray, 5%), $color_lightgray, vertical, 5%, 45%);
 		border-top: 1px solid darken($color_lightgray, 15%);
 		border-bottom: 1px solid lighten($color_lightgray, 10%);
+	}
+	@include m(cut) {
+		display: block;
+	}
+	@include m(fit) {
+		width: 100%;
 	}
 
 	// Themes

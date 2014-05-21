@@ -88,7 +88,7 @@ html {
 		//font-size: percentage($font-size / 100) * 0.9 !important;
 	}
 	@include mediaQueries(mobile){
-		font-size: percentage($font-size / 100) * 0.75 !important;
+		//font-size: percentage($font-size / 100) * 0.75 !important;
 	}
 }
 

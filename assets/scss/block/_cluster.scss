@@ -4,13 +4,13 @@
 
 // For standard settings
 $cluster_item_per_line: 4;
-$cluster_item_spacing: 20px;
-$cluster_item_height: 220px;
+$cluster_item_spacing: 10px;
+$cluster_item_height: 100px;
 // Take in padding because of box-sizing:border-box
 $cluster_item_height: $cluster_item_height + $cluster_item_spacing;
 
 // For calculations
-$cluster_use_advanced: true;
+$cluster_use_advanced: false;
 $cluster_min_items_per_line: 2;
 $cluster_max_items_per_line: 4;
 $cluster_min_item_height: 50px;
@@ -21,7 +21,9 @@ $cluster_num_of_heigths: ($cluster_max_item_height - $cluster_min_item_height) /
 
 
 .cluster {
+	width: 100%;
     display: block;
+	margin-bottom: -$cluster_item_spacing;
 	&,
 	.cluster__list,
 	.cluster__item,
@@ -57,7 +59,7 @@ $cluster_num_of_heigths: ($cluster_max_item_height - $cluster_min_item_height) /
 		padding-right: $cluster_item_spacing;
 		padding-bottom: $cluster_item_spacing;
 		height: $cluster_item_height;
-		z-index: 10;
+		z-index: 1;
 		list-style-image: none;
 		&:after {
 			content: "";

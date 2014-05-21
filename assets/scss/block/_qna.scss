@@ -1,0 +1,79 @@
+
+$__blockName: 'qna';
+
+$__qnaItemHeight: 50px;
+
+@include block($__blockName) {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	&,* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+	@include e(intro) {
+		display: block;
+		width: 100%;
+	}
+	@include e(item) {
+		@include transition(background-color 500ms ease);
+		@include fontSize(epsilon);
+		display: block;
+		width: 100%;
+		padding: 0 20px 0 40px;
+		background-color: $color_superlightgray;
+		border: 1px solid $color_lightgray;
+		border-bottom-width: 0px;
+		//min-height: $__qnaItemHeight;;
+		position: relative;
+		&:last-child {
+			border-bottom-width: 1px;
+		}
+		@include m(active) {
+			background-color: $color_white;
+			@include e(itemBody) {
+				//overflow: auto;
+				max-height: 800px;
+			}
+			@include e(toggle) {
+				@include rotate(90deg);
+			}
+		}
+	}
+	@include e(itemHead) {
+		display: block;
+		//height: $__qnaItemHeight;
+		//line-height: $__qnaItemHeight;
+		padding: 20px 0;
+		width: 100%;
+		cursor: pointer;
+		& > * {
+			margin: 0;
+		}
+	}
+	@include e(itemBody) {
+		@include transition(max-height 500ms ease);
+		max-height: 0;
+		display: block;
+		overflow: hidden;
+		width: 100%;
+		//margin: 0 0 20px 0;
+	}
+	@include e(toggle) {
+		@include fontSize(gamma, 0);
+		@include hoverActiveStates($color_summerorrange);
+		position: absolute;
+		display: block;
+		left: 20px;
+		top: 0px;
+		line-height: $__qnaItemHeight;
+		cursor: pointer;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+}

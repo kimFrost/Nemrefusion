@@ -1,7 +1,25 @@
 
 $__blockName: 'icon';
 
-$__iconMap: (glass: "\f000", circle: "\f111");
+$__iconMap: (
+	glass: "\f000",
+	circle: "\f111",
+	arrowup: "\f062",
+	arrowright: "\f061",
+	arrowbottom: "\f063",
+	arrowleft: "\f060",
+	chevroncircledown: "\f13a",
+	chevroncircleleft: "\f137",
+	chevroncircleright: "\f138",
+	chevroncircleup: "\f139",
+	chevrondown: "\f078",
+	chevronleft: "\f053",
+	chevronright: "\f054",
+	chevronup: "\f077",
+	check: "\f00c",
+	checkcircle: "\f058",
+	timescircle: "\f057"
+);
 
 
 
@@ -38,7 +56,7 @@ This is a "#{$__blockName}" module.
 
 
 @include block($__blockName) {
-	@at-root [class^="icon--"] {
+	@at-root [class^="icon"] {
 		display: inline-block;
 		font-family: FontAwesome;
 		font-style: normal;
@@ -48,6 +66,8 @@ This is a "#{$__blockName}" module.
 		-moz-osx-font-smoothing: grayscale;
 		&:before {
 			display: block;
+			font-family: inherit;
+			font-weight: inherit;
 		}
 	}
 	@each $key, $content in $__iconMap {
