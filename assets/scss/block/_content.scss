@@ -6,6 +6,7 @@ $__blockName: 'content';
 	width: 100%;
 	@include e(main) {
 		overflow: hidden;
+		border-left: 1px solid red;
 	}
 	@include e(aside) {
 		float: left;

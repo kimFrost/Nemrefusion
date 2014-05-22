@@ -291,6 +291,27 @@ block append content
 						p Informationsmailen vil blive udsendt, når der er information om eksempelvis ny lovgivning, ændrede snitfladebeskrivelser eller nye versioner af løsningen.
 						a.btn Tilmeld
 
+
+
+	section.partial.container
+		div.container__content
+			div.container__inner
+				div.content
+
+					div.content__aside.query.query--desktop
+						div.sticky.sticky--leftmenu(data-ng-controller="StickyCtrl", data-ng-style="css", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="60")
+							div.prototype(style="height: 300px;")
+								div.prototype__name Left Menu
+
+					div.content__main
+						div.content__partial
+							div.prototype(style="height: 900px;")
+								div.prototype__name Main Content
+						div.content__partial
+							div.prototype(style="height: 400px;")
+								div.prototype__name Main Content
+
+
 	//section.partial.partial--lagoon.container
 		div.container__content
 			div.container__inner Lagoon
