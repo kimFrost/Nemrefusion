@@ -21,6 +21,9 @@ $__stickyHeight: 60px;
 		@if $useAdaptive == true {
 			position: fixed;
 			top: 0;
+			@include m(mobilemenu) {
+				height: 100%;
+			}
 		}
 		@else {
 			top: auto !important;
@@ -29,6 +32,13 @@ $__stickyHeight: 60px;
 	@include m(leftmenu) {
 		height: auto;
 		z-index: 1;
+	}
+	@include m(mobilemenu) {
+		height: auto;
+		//height: 100%;
+		min-height: 1px;
+		min-height: 10px;
+		z-index: 50;
 	}
 	@include m(header) {
 		top: 101px;

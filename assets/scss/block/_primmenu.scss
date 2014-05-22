@@ -11,17 +11,21 @@ $__distToCenter: (sqrt(($__primmenuIndicatorSizeNoPx * $__primmenuIndicatorSizeN
 @include block($__blockName) {
 	position: relative;
 	@include e(item) {
+		@include fontSize(gamma, 0);
 		color: $color_textblack;
 		cursor: pointer;
 		position: relative;
+		font-family: $font_gudea;
+		font-weight: bold;
+		text-transform: uppercase;
 		@include m(active) {
-			color: $color_summerorrange;
+			color: $color_lagoonblue;
 		}
 		@include m(hover) {
-			color: $color_summerorrange;
+			color: $color_lagoonblue;
 		}
 		@include m(":hover") {
-			color: $color_summerorrange;
+			color: $color_lagoonblue;
 		}
 	}
 

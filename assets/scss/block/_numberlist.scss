@@ -1,0 +1,40 @@
+
+$_blockName: 'numberlist';
+
+@include block($_blockName) {
+	display: block;
+	padding: 0;
+	margin: 0;
+	counter-reset: item;
+	list-style-type: none;
+	@include e(item) {
+		display: block;
+		position: relative;
+		margin-bottom: 40px;
+		&:before {
+			@include fontSize(eta);
+			@include border-radius(50%, 50%, 50%, 50%);
+			content: counter(item) "  ";
+			counter-increment: item;
+			color: $color_white;
+			font-family: $font_gudea;
+			font-weight: bold;
+			display: block;
+			position: absolute;
+			left: 0px;
+			min-width: returnFontSize(eta);
+			min-height: returnFontSize(eta);
+			background-color: $color_summerorrange;
+			padding: 5px;
+			text-align: center;
+		}
+	}
+	@include e(headline) {
+		display: block;
+		width: 100%;
+		padding-left: 40px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		line-height: returnFontSize(eta);
+	}
+}

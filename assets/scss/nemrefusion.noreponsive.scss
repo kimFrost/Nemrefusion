@@ -13,6 +13,7 @@
 @import "global/_global_blockconstructor";
 
 
+$useAdaptive: false !global; // Media Querie mixin will skip if this ain't true
 
 
 @import "block/_nemrefusion";

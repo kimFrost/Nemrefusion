@@ -3,9 +3,9 @@ html(data-ng-app="nemrefusion")
 	head
 		title Nem Refusion
 		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 user-scalable=no")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
 		//meta(name="viewport", content="width=device-width, initial-scale=1")
-		link(rel='stylesheet', href='./css/nemrefusion.css')
+		link(rel='stylesheet', href='./css/nemrefusion.noreponsive.css')
 		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Gudea:400,700,400italic')
 		//link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css')
 		// Main app js
@@ -15,12 +15,12 @@ html(data-ng-app="nemrefusion")
 		block body
 		section.nemrefusion(data-ng-controller="ScrollCtrl", data-ng-style="css")
 			block glovalVars
-
 			//div.dev(data-ng-controller="devCtrl")
 				div.dev__log(data-ng-repeat="log in data.logList track by $index", data-ng-click="showLog(log.id)", data-ng-class="{'dev__log--active': log.id === data.logActiveId}") {{log.log}} {{log.name}} {{log.id}}
 				div.dev__modal(data-ng-class="{'dev__modal--show': states.logShow}")
 					div(ng-bind-html="data.logContent")
 					div.dev__modalclose(data-ng-click="hideLog()") x
+
 
 			header.header.query--desktop
 				div.container.container--line.container--nopadding
@@ -71,7 +71,6 @@ html(data-ng-app="nemrefusion")
 								div(data-ng-click="toggleSearch(false); releaseIndicator()") x
 
 
-
 			div.sticky.sticky--header.query--tablet.query--mobile(data-role="navigation", data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="0")
 				nav.container.container--line.container--paddingtop
 					div.container__content
@@ -91,24 +90,12 @@ html(data-ng-app="nemrefusion")
 							div.container__inner Søgning
 								div(data-ng-click="toggleSearch(false); releaseIndicator()") x
 
-			div.sticky.sticky--mobilemenu.query--tablet.query--mobile(data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="60")
-				div.foxhound(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
-					div.mobilemenu
-						ul.mobilemenu__lv1
-							li.mobilemenu__item
-								a 1
-							li.mobilemenu__item
-								a 2
-							li.mobilemenu__item
-								a 3
-								ul.mobilemenu__lv2
-									li.mobilemenu__item.mobilemenu__item--category Category
-									li.mobilemenu__item
-										a 3.1
-									li.mobilemenu__item
-										a 3.2
 
-			//div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
+			div.sticky.query--tablet.query--mobile(data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="60")
+				p findme
+
+
+			div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
 				div.mobilemenu
 					ul.mobilemenu__lv1
 						li.mobilemenu__item

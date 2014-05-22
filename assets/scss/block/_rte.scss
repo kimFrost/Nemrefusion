@@ -5,23 +5,44 @@ $__blockName: 'rte';
 @include block($__blockName) {
 	display: block;
 	width: 100%;
+	h1, h2, h3, h4 {
+		font-family: $font_gudea;
+		font-weight: bold;
+	}
 	h1 {
-
+		// 32
+		@include fontSize(theta);
 	}
 	h2 {
-
+		// 28
+		@include fontSize(eta);
 	}
 	h3 {
-
+		@include fontSize(eta);
 	}
 	h4 {
-
+		@include fontSize(eta);
 	}
 	p {
-
+		@include fontSize(delta, 1.4);
+		font-family: $font_gudea;
+		font-weight: normal;
+		// 17 / 24
 	}
 	a {
 
 	}
 }
 
+/*
+$alpha: 11;
+$beta: 12;
+$gamma: 14;
+$delta: 16;
+$epsilon: 18;
+$zeta: 21;
+$eta: 24;
+$theta: 32;
+$iota: 48;
+$kappa: 64;
+*/
