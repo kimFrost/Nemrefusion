@@ -76,6 +76,20 @@
 					content: _data.logContent
 				});
 			}
+			else if ($scope.states.rendered && $scope.states.dataRead){
+				if (!$scope.states.sticky) {
+					$scope.data.originalOffsetTop = (function(){
+						var el = $element[0];
+						var offsets = el.getBoundingClientRect();
+						return offsets.top + (window.scrollY || window.pageYOffset);
+					})();
+					$scope.data.originalOffsetLeft = (function(){
+						var el = $element[0];
+						var offsets = el.getBoundingClientRect();
+						return offsets.left + (window.scrollX || window.pageXOffset);
+					})();
+				}
+			}
 		};
 		$scope.updateStickyStatus = function() {
 			$scope.updateStickyData();
@@ -152,7 +166,6 @@
 					state: state
 				});
 			}
-
 		};
 
 		/* Bindings

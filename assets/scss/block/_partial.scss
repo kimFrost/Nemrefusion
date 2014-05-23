@@ -46,7 +46,7 @@ $__blockName: 'partial';
 		padding-bottom: 0;
 	}
 	@include m(noTopPadding) {
-		padding-bottom: 0;
+		padding-top: 0;
 	}
 	@include m(morePadding) {
 		padding-top: 50px;

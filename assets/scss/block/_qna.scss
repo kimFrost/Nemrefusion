@@ -51,6 +51,8 @@ $__qnaItemHeight: 50px;
 		& > * {
 			margin: 0;
 		}
+
+
 	}
 	@include e(itemBody) {
 		@include transition(max-height 500ms ease);

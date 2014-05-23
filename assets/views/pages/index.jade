@@ -32,53 +32,6 @@ block append content
 					div.status.color.color--lightgray.color--bg status
 
 
-	section.partial.container
-		div.container__content
-			div.container__inner
-				div.status.color.color--blue.color--bg
-					div.rte
-						h1 Sidste nyt
-						p Vi udsender nyheder omkring NemRefusion løsningen, når der er behov for det. Vælg hvilken sektion du har interesse i nedenfor.
-					div.cluster
-						div.cluster__list
-							div.cluster__item.cluster__item--2x1
-								div.cluster__inner
-									a.status__box
-										div.status__icon
-											div.icon.icon--chevroncircleright
-										h2 Arbejdsgivere
-										p Se nyheder
-							div.cluster__item.cluster__item--2x1
-								div.cluster__inner
-									a.status__box
-										div.status__icon
-											div.icon.icon--chevroncircleright
-										h2 Arbejdsgivere
-										p Se nyheder
-							div.cluster__item.cluster__item--2x1
-								div.cluster__inner
-									a.status__box
-										div.status__icon
-											div.icon.icon--chevroncircleright
-										h2 Arbejdsgivere
-										p Se nyheder
-							div.cluster__item.cluster__item--2x1
-								div.cluster__inner
-									a.status__box
-										div.status__icon
-											div.icon.icon--chevroncircleright
-										h2 Arbejdsgivere
-										p Se nyheder
-							div.cluster__item.cluster__item--2x1
-								div.cluster__inner
-									a.status__box
-										div.status__icon
-											div.icon.icon--chevroncircleright
-										h2 Arbejdsgivere
-										p Se nyheder
-
-
-
 	section.partial.container.partial--lagoon
 		div.container__content
 			div.container__inner
@@ -94,7 +47,7 @@ block append content
 	section.partial.container
 		div.container__content
 			div.container__inner
-				div.status.color.color--blue.color--bg
+				div.status.color.color--blue.color--bg.status--noBottomMargin
 					div.cluster
 						div.cluster__list
 							div.cluster__item.cluster__item--2x1
@@ -293,23 +246,123 @@ block append content
 
 
 
-	section.partial.container
+	section.partial.container.partial--noBottomPadding.partial--noTopPadding
 		div.container__content
 			div.container__inner
 				div.content
 
 					div.content__aside.query.query--desktop
-						div.sticky.sticky--leftmenu(data-ng-controller="StickyCtrl", data-ng-style="css", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="60")
-							div.prototype(style="height: 300px;")
-								div.prototype__name Left Menu
+						div.sticky.sticky--leftmenu(data-ng-controller="StickyCtrl", data-ng-style="css", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="80")
+							div.leftmenu
+								ul.leftmenu__lv1
+									li.leftmenu__item.leftmenu__item--category Support
+									li.leftmenu__item
+										a Kontakt
+									li.leftmenu__item.leftmenu__item--active
+										a Driftstatus
+									li.leftmenu__item
+										a Aktuelt fra support
+									li.leftmenu__item
+										a Ofte stillede spørgsmål
+									li.leftmenu__item
+										a kommende systemændringer
+									li.leftmenu__item
+										a tekniske krav
+									li.leftmenu__item.leftmenu__item--category Nyheder
+									li.leftmenu__item
+										a Sidste nyt
+									li.leftmenu__item
+										a informationsmail
 
-					div.content__main
-						div.content__partial
-							div.prototype(style="height: 900px;")
-								div.prototype__name Main Content
-						div.content__partial
-							div.prototype(style="height: 400px;")
-								div.prototype__name Main Content
+
+					div.content__main.content__main--line
+						div.status.color.color--blue.color--bg
+							div.rte
+								h1 Sidste nyt
+								p Vi udsender nyheder omkring NemRefusion løsningen, når der er behov for det. Vælg hvilken sektion du har interesse i nedenfor.
+							div.cluster
+								div.cluster__list
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+									div.cluster__item.cluster__item--2x1
+										div.cluster__inner
+											a.status__box
+												div.status__icon
+													div.icon.icon--chevroncircleright
+												h2 Arbejdsgivere
+												p Se nyheder
+
+						div.qna(data-ng-controller="QnaCtrl")
+							div.qna__intro
+								div.rte
+									h2 Sidste nyt for arbejdsgivere
+									p Her kan du se hvilke hændelser, der i den seneste tid kan have påvirket indberetninger i NemRefusion. I højre side kan du se den aktuelle driftssituation. Følg med i mere generelle problemstillinger under "Aktuelt fra support"
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(1)}")
+								div.qna__toggle(data-ng-click="toggle(1)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(1)")
+									h3 Head 1
+								div.qna__itemBody
+									div.rte
+										include ../blocks/lorem
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(2)}")
+								div.qna__toggle(data-ng-click="toggle(2)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(2)")
+									h3 Head 2
+								div.qna__itemBody
+									div.rte
+										include ../blocks/lorem
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(3)}")
+								div.qna__toggle(data-ng-click="toggle(3)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(3)")
+									h3 Head 3
+								div.qna__itemBody
+									div.rte
+										include ../blocks/lorem
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(4)}")
+								div.qna__toggle(data-ng-click="toggle(4)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(4)")
+									h3 Head 4
+								div.qna__itemBody
+									div.rte
+										include ../blocks/lorem
+							div.qna__item(data-ng-class="{'qna__item--active': checkActive(5)}")
+								div.qna__toggle(data-ng-click="toggle(5)")
+									div.icon.icon--chevronright
+								div.qna__itemHead(data-ng-click="toggle(5)")
+									h3 Head 5
+								div.qna__itemBody
+									div.rte
+										include ../blocks/lorem
 
 
 	//section.partial.partial--lagoon.container

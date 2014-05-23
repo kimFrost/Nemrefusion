@@ -1,0 +1,67 @@
+
+$__blockName: 'leftmenu';
+
+
+@include block($__blockName) {
+	width: 100%;
+	display: block;
+	position: relative;
+	font-family: $font_gudea;
+	font-weight: bold;
+	color: $color_black;
+	&:after  {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	@include e(lv1) {
+		width: 100%;
+		display: block;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	@include e(item) {
+		@include fontSize(gamma, 0); // 14
+		width: 100%;
+		display: block;
+		margin: 0;
+		padding: 0;
+		font-family: inherit;
+		color: inherit;
+		font-weight: inherit;
+		position: relative;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		&:hover {
+			color: $color_lagoonblue;
+		}
+		@include m(category) {
+			@include fontSize(zeta, 0); // 22
+			padding-top: 10px;
+			color: $color_summerorrange;
+			&:hover {
+				color: $color_summerorrange;
+			}
+		}
+		@include m(active) {
+			color: $color_lagoonblue;
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				right: -20px;
+				top: 50%;
+				background-color: $color_summerorrange;
+				height: 20px;
+				width: 20px;
+				margin-top: -10px;
+			}
+		}
+	}
+}
