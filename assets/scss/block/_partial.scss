@@ -76,6 +76,12 @@ $__blockName: 'partial';
 		width: 100%;
 		display: block;
 		text-align: center;
+		@include m(marginbottom) {
+			margin-bottom: 20px;
+		}
+		@include m(margintop) {
+			margin-top: 20px;
+		}
 	}
 	@include e(findme) {
 		color: blackheart;

@@ -7,6 +7,12 @@ $__blockName: 'list';
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	margin-bottom: 20px;
+	&,* {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
 	@include e(headline) {
 		@include fontSize(epsilon);
 		font-family: $font_gudea;
@@ -28,6 +34,33 @@ $__blockName: 'list';
 			padding-right: 5px;
 			color: $color_summerorrange;
 		}
+	}
+	@include e(line) {
+		display: block;
+		width: 100%;
+		padding: 5px 0 5px 15px;
+		border-top: 1px solid $color_lightgray;
+
+		display: table;
+		vertical-align: middle;
+
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		&:last-child {
+			border-bottom: 1px solid $color_lightgray;
+		}
+	}
+	@include e(innerleft) {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	@include e(innerright) {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
 	}
 }
 

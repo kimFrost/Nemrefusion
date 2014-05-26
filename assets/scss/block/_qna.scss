@@ -47,18 +47,32 @@ $__qnaItemHeight: 50px;
 		//line-height: $__qnaItemHeight;
 		padding: 20px 0;
 		width: 100%;
+		position: relative;
 		cursor: pointer;
+		color: $color_textdarkgray;
 		& > * {
 			margin: 0;
 		}
+		& > p {
+			@include fontSize(gamma, 0);
+		}
+		& > h1,
+		& > h2,
+		& > h3,
+		& > h4 {
+			@include fontSize(delta, 0);
+		}
 
-
+		@include e(toggle, "& >") {
+			left: -20px;
+		}
 	}
 	@include e(itemBody) {
 		@include transition(max-height 500ms ease);
 		max-height: 0;
 		display: block;
 		overflow: hidden;
+		color: $color_textdarkgray;
 		width: 100%;
 		//margin: 0 0 20px 0;
 	}
@@ -68,8 +82,9 @@ $__qnaItemHeight: 50px;
 		position: absolute;
 		display: block;
 		left: 20px;
-		top: 0px;
-		line-height: $__qnaItemHeight;
+		top: 50%;
+		margin-top: -#{returnHalfFontSize(gamma)};
+		//line-height: $__qnaItemHeight;
 		cursor: pointer;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;

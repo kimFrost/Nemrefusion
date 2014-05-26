@@ -188,41 +188,41 @@ block append content
 							h2 QnA headline
 							p QnA Text
 					div.qna__item(data-ng-class="{'qna__item--active': checkActive(1)}")
-						div.qna__toggle(data-ng-click="toggle(1)")
-							div.icon.icon--chevronright
 						div.qna__itemHead(data-ng-click="toggle(1)")
+							div.qna__toggle(data-ng-click="toggle(1)")
+								div.icon.icon--chevronright
 							h3 Head 1
 						div.qna__itemBody
 							div.rte
 								include ../blocks/lorem
 					div.qna__item(data-ng-class="{'qna__item--active': checkActive(2)}")
-						div.qna__toggle(data-ng-click="toggle(2)")
-							div.icon.icon--chevronright
 						div.qna__itemHead(data-ng-click="toggle(2)")
+							div.qna__toggle(data-ng-click="toggle(2)")
+								div.icon.icon--chevronright
 							h3 Head 2
 						div.qna__itemBody
 							div.rte
 								include ../blocks/lorem
 					div.qna__item(data-ng-class="{'qna__item--active': checkActive(3)}")
-						div.qna__toggle(data-ng-click="toggle(3)")
-							div.icon.icon--chevronright
 						div.qna__itemHead(data-ng-click="toggle(3)")
+							div.qna__toggle(data-ng-click="toggle(3)")
+								div.icon.icon--chevronright
 							h3 Head 3
 						div.qna__itemBody
 							div.rte
 								include ../blocks/lorem
 					div.qna__item(data-ng-class="{'qna__item--active': checkActive(4)}")
-						div.qna__toggle(data-ng-click="toggle(4)")
-							div.icon.icon--chevronright
 						div.qna__itemHead(data-ng-click="toggle(4)")
+							div.qna__toggle(data-ng-click="toggle(4)")
+								div.icon.icon--chevronright
 							h3 Head 4
 						div.qna__itemBody
 							div.rte
 								include ../blocks/lorem
 					div.qna__item(data-ng-class="{'qna__item--active': checkActive(5)}")
-						div.qna__toggle(data-ng-click="toggle(5)")
-							div.icon.icon--chevronright
 						div.qna__itemHead(data-ng-click="toggle(5)")
+							div.qna__toggle(data-ng-click="toggle(5)")
+								div.icon.icon--chevronright
 							h3 Head 5
 						div.qna__itemBody
 							div.rte
@@ -258,21 +258,29 @@ block append content
 									li.leftmenu__item.leftmenu__item--category Support
 									li.leftmenu__item
 										a Kontakt
+										div.leftmenu__itemindicator
 									li.leftmenu__item.leftmenu__item--active
 										a Driftstatus
+										div.leftmenu__itemindicator
 									li.leftmenu__item
 										a Aktuelt fra support
+										div.leftmenu__itemindicator
 									li.leftmenu__item
 										a Ofte stillede spørgsmål
+										div.leftmenu__itemindicator
 									li.leftmenu__item
 										a kommende systemændringer
+										div.leftmenu__itemindicator
 									li.leftmenu__item
 										a tekniske krav
+										div.leftmenu__itemindicator
 									li.leftmenu__item.leftmenu__item--category Nyheder
 									li.leftmenu__item
 										a Sidste nyt
+										div.leftmenu__itemindicator
 									li.leftmenu__item
 										a informationsmail
+										div.leftmenu__itemindicator
 
 
 					div.content__main.content__main--line
@@ -324,45 +332,94 @@ block append content
 									h2 Sidste nyt for arbejdsgivere
 									p Her kan du se hvilke hændelser, der i den seneste tid kan have påvirket indberetninger i NemRefusion. I højre side kan du se den aktuelle driftssituation. Følg med i mere generelle problemstillinger under "Aktuelt fra support"
 							div.qna__item(data-ng-class="{'qna__item--active': checkActive(1)}")
-								div.qna__toggle(data-ng-click="toggle(1)")
-									div.icon.icon--chevronright
 								div.qna__itemHead(data-ng-click="toggle(1)")
-									h3 Head 1
+									div.qna__toggle(data-ng-click="toggle(1)")
+										div.icon.icon--chevronright
+									p 03.april 2014
+									h3 Kommende ændringer
 								div.qna__itemBody
 									div.rte
 										include ../blocks/lorem
 							div.qna__item(data-ng-class="{'qna__item--active': checkActive(2)}")
-								div.qna__toggle(data-ng-click="toggle(2)")
-									div.icon.icon--chevronright
 								div.qna__itemHead(data-ng-click="toggle(2)")
+									div.qna__toggle(data-ng-click="toggle(2)")
+										div.icon.icon--chevronright
 									h3 Head 2
 								div.qna__itemBody
 									div.rte
 										include ../blocks/lorem
 							div.qna__item(data-ng-class="{'qna__item--active': checkActive(3)}")
-								div.qna__toggle(data-ng-click="toggle(3)")
-									div.icon.icon--chevronright
 								div.qna__itemHead(data-ng-click="toggle(3)")
+									div.qna__toggle(data-ng-click="toggle(3)")
+										div.icon.icon--chevronright
 									h3 Head 3
 								div.qna__itemBody
 									div.rte
 										include ../blocks/lorem
 							div.qna__item(data-ng-class="{'qna__item--active': checkActive(4)}")
-								div.qna__toggle(data-ng-click="toggle(4)")
-									div.icon.icon--chevronright
 								div.qna__itemHead(data-ng-click="toggle(4)")
+									div.qna__toggle(data-ng-click="toggle(4)")
+										div.icon.icon--chevronright
 									h3 Head 4
 								div.qna__itemBody
 									div.rte
 										include ../blocks/lorem
 							div.qna__item(data-ng-class="{'qna__item--active': checkActive(5)}")
-								div.qna__toggle(data-ng-click="toggle(5)")
-									div.icon.icon--chevronright
 								div.qna__itemHead(data-ng-click="toggle(5)")
+									div.qna__toggle(data-ng-click="toggle(5)")
+										div.icon.icon--chevronright
 									h3 Head 5
 								div.qna__itemBody
 									div.rte
 										include ../blocks/lorem
+
+							div.partial__center.partial__center--margintop
+								a.btn Indlæs flere
+
+						div.rte
+							p
+								b En kort beskrivelse af hvordan du som ny bruger kommer igang med NemRefusion:
+							p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+						ul.list
+							li.list__line
+								div.list__innerleft
+									div.rte Lorem ipsum dolor sit amet, consectabore et dolore ud exeal
+								div.list__innerright
+									a.btn Hent
+							li.list__line
+								div.list__innerleft
+									div.rte Lorem ipsum dolor sit amet, consectabore et dolore ud exeal
+								div.list__innerright
+									a.btn Hent
+							li.list__line
+								div.list__innerleft
+									div.rte Lorem ipsum dolor sit amet, consectabore et dolore ud exeal
+								div.list__innerright
+									a.btn Hent
+							li.list__line
+								div.list__innerleft
+									div.rte Lorem ipsum dolor sit amet, consectabore et dolore ud exeal
+								div.list__innerright
+									a.btn Hent
+
+						div.rte
+							p
+								b En kort beskrivelse af hvordan du som ny bruger kommer igang med NemRefusion:
+							p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+						ul.list
+							li.list__line
+								div.list__innerleft
+									div.rte Lorem ipsum dolor sit amet, consectabore et dolore ud exeal
+								div.list__innerright
+									a.btn Hent
+							li.list__line
+								div.list__innerleft
+									div.rte Lorem ipsum dolor sit amet, consectabore et dolore ud exeal
+								div.list__innerright
+									a.btn Hent
+
 
 
 	//section.partial.partial--lagoon.container

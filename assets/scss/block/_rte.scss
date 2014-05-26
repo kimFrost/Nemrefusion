@@ -3,6 +3,9 @@ $__blockName: 'rte';
 
 
 @include block($__blockName) {
+	@include fontSize(delta, 1.4);
+	font-family: $font_gudea;
+	font-weight: normal;
 	display: block;
 	width: 100%;
 	h1, h2, h3, h4 {

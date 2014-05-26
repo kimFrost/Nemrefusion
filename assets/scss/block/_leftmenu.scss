@@ -1,6 +1,11 @@
 
 $__blockName: 'leftmenu';
 
+$__leftmenuIndicatorSize: 10px;
+$__leftmenuIndicatorSizeNoPx: 10;
+$__leftmenuIndicatorOffsetRight: -10px;
+
+$__distToCenter: (sqrt(($__leftmenuIndicatorSizeNoPx * $__leftmenuIndicatorSizeNoPx) + ($__leftmenuIndicatorSizeNoPx * $__leftmenuIndicatorSizeNoPx)) / 2);
 
 @include block($__blockName) {
 	width: 100%;
@@ -38,8 +43,17 @@ $__blockName: 'leftmenu';
 			display: block;
 			clear: both;
 		}
-		&:hover {
+		@include m(":hover") {
 			color: $color_lagoonblue;
+			@include e(itemindicator) {
+				//display: block;
+			}
+		}
+		@include m(active) {
+			color: $color_lagoonblue;
+			@include e(itemindicator) {
+				display: block;
+			}
 		}
 		@include m(category) {
 			@include fontSize(zeta, 0); // 22
@@ -49,19 +63,32 @@ $__blockName: 'leftmenu';
 				color: $color_summerorrange;
 			}
 		}
-		@include m(active) {
-			color: $color_lagoonblue;
-			&:before {
-				content: "";
-				display: block;
-				position: absolute;
-				right: -20px;
-				top: 50%;
-				background-color: $color_summerorrange;
-				height: 20px;
-				width: 20px;
-				margin-top: -10px;
-			}
+	}
+	@include e(itemindicator) {
+		position: absolute;
+		right: -$__leftmenuIndicatorSize;
+		height: $__distToCenter * 2px;
+		width: $__leftmenuIndicatorSize;
+		margin-left: -($__leftmenuIndicatorSize / 2);
+		z-index: 1;
+		overflow: hidden;
+		top: 50%;
+		margin-top: -#{$__distToCenter}px;
+		display: none;
+		&:before {
+			@include transform-origin(0%, 0%);
+			@include rotate(45deg);
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			margin-top: -#{$__distToCenter}px;
+			width: $__leftmenuIndicatorSize;
+			height: $__leftmenuIndicatorSize;
+			background-color: $color_white;
+			border-right: 1px solid $color_lightgray;
+			border-top: 1px solid $color_lightgray;
 		}
+
 	}
 }

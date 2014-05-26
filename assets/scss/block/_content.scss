@@ -8,10 +8,11 @@ $__blockName: 'content';
 		position: relative;
 		overflow: hidden;
 		padding-top: 20px;
+		padding-bottom: 30px;
 		@include m(line) {
 			&:before {
 				content: "";
-				display: block;
+				display: none;
 				position: absolute;
 				top: 0;
 				bottom: 0;
@@ -33,6 +34,9 @@ $__blockName: 'content';
 		}
 		@include e(main, "& + ") {
 			padding-left: 20px;
+			&:before {
+				display: block;
+			}
 		}
 	}
 	@include e(partial) {
