@@ -37,6 +37,9 @@ $__blockName: 'grid';
 			padding-top: $__gridSpacing;
 		}
 	}
+	@include m(spacebottom) {
+		margin-bottom: $__gridSpacing;
+	}
 	@for $i from 1 through $__gridSize {
 		@include m(#{$i}) {
 			width: 100% / $__gridSize * $i;

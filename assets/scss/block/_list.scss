@@ -13,6 +13,9 @@ $__blockName: 'list';
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 	}
+	@include m(nomargin) {
+		margin-bottom: 0;
+	}
 	@include e(headline) {
 		@include fontSize(epsilon);
 		font-family: $font_gudea;
@@ -33,6 +36,11 @@ $__blockName: 'list';
 			font-weight: bold;
 			padding-right: 5px;
 			color: $color_summerorrange;
+		}
+		@include m(nobullet) {
+			&:before {
+				display: none;
+			}
 		}
 	}
 	@include e(line) {

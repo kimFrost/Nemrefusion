@@ -133,15 +133,16 @@ html(data-ng-app="nemrefusion")
 			section.partial.container.partial--superlightgray.partial--footer
 				div.container__content
 					div.container__inner
-						div.grid
+						div.grid.grid--spacebottom
 							a
 								img(src="./img/graphic/logo.png", alt="Nem Refusion")
 						div.grid.grid--6.grid--spaceright
 							ul.list
 								li.list__headline Support og Kontakt
-							div.rte
-								p Mandag-fredag kl. 08.00 - 16.30
-								a.btn KLIK HER
+								li.list__item.list__item--nobullet Mandag-fredag kl. 08.00 - 16.30
+								li.list__item.list__item--nobullet Lørdag-Søndag Lukket
+
+							a.btn KLIK HER
 						div.grid.grid--6.grid--spaceleft.grid--spaceright
 							ul.list
 								li.list__headline Om Nemrefusion
@@ -165,6 +166,9 @@ html(data-ng-app="nemrefusion")
 								li.list__item 2
 								li.list__item 3
 								li.list__item 4
+						div.partial__footerinfo
+							div.rte
+								p Udviklet i samarbejde med  KOMBIT  I  Kommunernes Landsforening  I  Virk.dk
 
 
 		script(src='./scripts/nemrefusion.js')
