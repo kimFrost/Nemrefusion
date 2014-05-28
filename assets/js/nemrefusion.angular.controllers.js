@@ -467,7 +467,6 @@
 		};
 		*/
 
-		console.log($scope.scrollctrl);
 
 		$scope.toggleScroll = function(state) {
 			state = (state === undefined) ? "toggle" : state;
@@ -515,6 +514,57 @@
 			}
 			*/
 		});
+
+	}]);
+
+
+	// Scroll Controller (For disable scroll with overflow hidden)
+	Nemrefusion.Angular.controller('mobilemenuCtrl', ['$scope', '$element', '$rootScope', function($scope, $element, $rootScope) {
+
+		$scope.mobilemenuctrl = {
+			options: {},
+			data: {
+				activelist: []
+			},
+			states: {},
+			css: {}
+		};
+
+		/* Scope Functions
+		===========================*/
+		$scope.toggleSubItems = function(id, state) {
+			state = (state === undefined) ? "toggle" : state;
+			if (id != undefined) {
+				var found = false;
+				for (var i=0;i<$scope.mobilemenuctrl.data.activelist.length; i++) {
+					var itemid = $scope.mobilemenuctrl.data.activelist[i];
+					if (itemid === id) {
+						$scope.mobilemenuctrl.data.activelist.splice(i,1);
+						found = true;
+					}
+				}
+				if (!found) {
+					$scope.mobilemenuctrl.data.activelist.push(id);
+				}
+			}
+		};
+		$scope.check = function(id) {
+			if (id != undefined) {
+				if ($scope.mobilemenuctrl.data.activelist.indexOf(id) != -1) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+		};
+
+
+		/* Bindings
+		===========================*/
+		// Scope Events
+
+		// User Events
 
 	}]);
 

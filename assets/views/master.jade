@@ -93,7 +93,7 @@ html(data-ng-app="nemrefusion")
 
 			div.sticky.sticky--mobilemenu.query--tablet.query--mobile(data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-fill="true", data-sticky-topoffset="60")
 				div.foxhound(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}", data-ng-style="childcss")
-					div.mobilemenu
+					div.mobilemenu(data-ng-controller="mobilemenuCtrl")
 						ul.mobilemenu__lv1
 							li.mobilemenu__item
 								a Hvad er nemrefusion?
@@ -101,8 +101,8 @@ html(data-ng-app="nemrefusion")
 								a Sådan indberetter du
 							li.mobilemenu__item
 								a Nyttig information
-								div.mobilemenu__togglesub -
-							li.mobilemenu__lv2
+								div.mobilemenu__togglesub(data-ng-click="toggleSubItems(1)") +
+							li.mobilemenu__lv2(data-ng-class="{'mobilemenu__lv2--unfolded': check(1)}")
 								ul
 									li.mobilemenu__item.mobilemenu__item--category Vejledninger
 									li.mobilemenu__item
