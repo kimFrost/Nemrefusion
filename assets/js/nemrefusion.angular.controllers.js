@@ -11,6 +11,7 @@
 		$scope.states = {};
 		//$scope.css = ($scope.css === undefined) ? {} : $scope.css;
 		$scope.css = {};
+		$scope.childcss = {};
 		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
 		// Options
 
@@ -31,11 +32,27 @@
 			if (isNaN(value)) value = 0;
 			return value;
 		})();
+		$scope.data.stickyFill = (function() {
+			var value = $element.attr('data-sticky-fill');
+			return Boolean(value);
+		})();
+
 
 		// CSS
 		$scope.css.top = "";
 		$scope.css.left = "";
 		$scope.css.width = "inherit";
+		$scope.css.height = "";
+		$scope.childcss.height = "";
+
+		/*
+		if ($scope.data.stickyFill) {
+			$scope.css.height = window.innerHeight - $element[0].getBoundingClientRect().top + "px";
+			console.log(window.innerHeight);
+			console.log($scope.css.height);
+			console.log($element[0].getBoundingClientRect().top);
+		}
+		*/
 
 		// States
 		$scope.states.sticky = false;
@@ -136,6 +153,12 @@
 					content: _data.logContent
 				});
 			}
+			if ($scope.data.stickyFill) {
+				if ($element[0].getBoundingClientRect().top >= 0) {
+					//$scope.css.height = window.innerHeight - $element[0].getBoundingClientRect().top + "px";
+					$scope.childcss.height = window.innerHeight - $element[0].getBoundingClientRect().top + "px";
+				}
+			}
 			_data = null;
 		};
 		$scope.visible = function(element) {
@@ -172,6 +195,7 @@
 		===========================*/
 		// Scroll
 		angular.element(window).bind("scroll",function() {
+			//Nemrefusion.log("scroll");
 			$scope.$apply(function(){
 				$scope.updateStickyStatus();
 			});
@@ -181,9 +205,8 @@
 			$scope.$apply(function() {
 				$scope.updateStickyStatus();
 			});
-
 		});
-
+		$scope.updateStickyStatus();
 	}]);
 
 
@@ -404,23 +427,17 @@
 
 	// Scroll Controller (For disable scroll with overflow hidden)
 	Nemrefusion.Angular.controller('ScrollCtrl', ['$scope', '$element', '$rootScope', function($scope, $element, $rootScope) {
-		//$scope.data = ($scope.data === undefined) ? {} : $scope.data;
-		$scope.data = {};
-		//$scope.states = ($scope.states === undefined) ? {} : $scope.states;
-		$scope.states = {};
-		//$scope.css = ($scope.css === undefined) ? {} : $scope.css;
-		$scope.css = {};
-		$scope.css2 = {};
-		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
-		// Options
 
-		// Data
-		$scope.data.lastYPos = window.scrollY;
-
-		// States
-		$scope.states.disable = false;
-
-		// CSS
+		$scope.scrollctrl = {
+			options: {},
+			data: {
+				lastYPos: window.scrollY
+			},
+			states: {
+				disable: false
+			},
+			css: {}
+		};
 
 
 		/* Scope Functions
@@ -450,16 +467,30 @@
 		};
 		*/
 
+		console.log($scope.scrollctrl);
+
 		$scope.toggleScroll = function(state) {
 			state = (state === undefined) ? "toggle" : state;
 			if (state === "toggle") {
-				$scope.states.disable = !$scope.states.disable;
+				if ($scope.scrollctrl.states.disable) {
+					state = "show";
+				}
+				else {
+					state = "hide";
+				}
 			}
 			if (state === "hide") {
-				$scope.states.disable = true;
+				$scope.scrollctrl.states.disable = true;
+				$scope.scrollctrl.data.lastYPos = (window.scrollY || window.pageYOffset);
+				$scope.scrollctrl.css.height = "100%";
+				$scope.scrollctrl.css.overflow = "hidden";
+				console.log($scope.scrollctrl);
+
 			}
 			if (state === "show") {
-				$scope.states.disable = false;
+				$scope.scrollctrl.states.disable = false;
+				$scope.scrollctrl.css.height = "";
+				$scope.scrollctrl.css.overflow = "";
 			}
 		};
 
@@ -473,7 +504,7 @@
 		});
 		// User Events
 		angular.element(window).bind('scroll', function(event) {
-
+			/*
 			console.log($scope.states.disable);
 			if ($scope.states.disable) {
 				event.preventDefault();
@@ -482,7 +513,7 @@
 			else {
 				$scope.data.lastYPos = window.scrollY;
 			}
-
+			*/
 		});
 
 	}]);

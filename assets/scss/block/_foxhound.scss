@@ -8,6 +8,34 @@ $__foxhoundOffsetTop: 60px;
 @include block($__blockName) {
 	@include transform-origin(0%, 0%);
 	@include translate(0%, -101%);
+	@include transition(all 300ms ease);
+	height: 100%;
+	width: 100%;
+	display: block;
+	overflow-y: auto;
+	z-index: 50;
+	position: absolute;
+	top: 0;
+	@include m(show) {
+		@include translate(0%, 0%);
+	}
+	@include e(switch) {
+		display: block;
+		position: absolute;
+		bottom: 50px;
+		left: -30px;
+		width: 30px;
+		height: 30px;
+		z-index: 80;
+		cursor: pointer;
+		@include hoverActiveStates(#daa520, 'background-color');
+	}
+}
+
+/*
+@include block($__blockName) {
+	@include transform-origin(0%, 0%);
+	@include translate(0%, -101%);
 	//@include scale(1, 0);
 	@include transition(all 300ms ease);
 	//position: fixed;
@@ -54,4 +82,5 @@ $__foxhoundOffsetTop: 60px;
 		@include hoverActiveStates(#daa520, 'background-color');
 	}
 }
+*/
 

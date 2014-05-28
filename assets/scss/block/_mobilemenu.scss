@@ -55,13 +55,18 @@ $__blockName: 'mobilemenu';
 		}
 	}
 	@include e(togglesub) {
-		@include fontSize(eta, 0);
+		@include fontSize(iota, 0);
+		font-family: $font_basic;
+		font-weight: bold;
 		display: block;
 		position: absolute;
 		right: 30px;
+		height: returnFontSize(iota);
+		line-height: returnFontSize(iota);
 		font-size: inherit;
 		top: 50%;
 		cursor: pointer;
+		margin-top: -#{returnHalfFontSize(iota)};
 		color: $color_summerorrange;
 	}
 }

@@ -13,7 +13,7 @@ html(data-ng-app="nemrefusion")
 		block head
 	body
 		block body
-		section.nemrefusion(data-ng-controller="ScrollCtrl", data-ng-style="css")
+		section.nemrefusion(data-ng-controller="ScrollCtrl", data-ng-style="scrollctrl.css")
 			block glovalVars
 
 			//div.dev(data-ng-controller="devCtrl")
@@ -91,47 +91,46 @@ html(data-ng-app="nemrefusion")
 							div.container__inner Søgning
 								div(data-ng-click="toggleSearch(false); releaseIndicator()") x
 
-			div.sticky.sticky--mobilemenu.query--tablet.query--mobile(data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-topoffset="60")
-				div.sticky__relative
-					div.foxhound(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
-						div.mobilemenu
-							ul.mobilemenu__lv1
-								li.mobilemenu__item
-									a Hvad er nemrefusion?
-								li.mobilemenu__item
-									a Sådan indberetter du
-								li.mobilemenu__item
-									a Nyttig information
-									div.mobilemenu__togglesub +
-								li.mobilemenu__lv2
-									ul
-										li.mobilemenu__item.mobilemenu__item--category Vejledninger
-										li.mobilemenu__item
-											a Selvstændige
-										li.mobilemenu__item
-											a Kommuner
-										li.mobilemenu__item.mobilemenu__item--category Regler og lovstof
-										li.mobilemenu__item
-											a Regler for sygedagpenge
-										li.mobilemenu__item
-											a Regler for barselsdagpenge
-								li.mobilemenu__item
-									a Nyheder og Support
-									div.mobilemenu__togglesub +
-								li.mobilemenu__item
-									a Lorem
-								li.mobilemenu__item
-									a Lorem
-								li.mobilemenu__item
-									a Lorem
-								li.mobilemenu__item
-									a Lorem
-								li.mobilemenu__item
-									a Lorem
-								li.mobilemenu__item
-									a Lorem
+			div.sticky.sticky--mobilemenu.query--tablet.query--mobile(data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-fill="true", data-sticky-topoffset="60")
+				div.foxhound(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}", data-ng-style="childcss")
+					div.mobilemenu
+						ul.mobilemenu__lv1
+							li.mobilemenu__item
+								a Hvad er nemrefusion?
+							li.mobilemenu__item
+								a Sådan indberetter du
+							li.mobilemenu__item
+								a Nyttig information
+								div.mobilemenu__togglesub -
+							li.mobilemenu__lv2
+								ul
+									li.mobilemenu__item.mobilemenu__item--category Vejledninger
+									li.mobilemenu__item
+										a Selvstændige
+									li.mobilemenu__item
+										a Kommuner
+									li.mobilemenu__item.mobilemenu__item--category Regler og lovstof
+									li.mobilemenu__item
+										a Regler for sygedagpenge
+									li.mobilemenu__item
+										a Regler for barselsdagpenge
+							li.mobilemenu__item
+								a Nyheder og Support
+								div.mobilemenu__togglesub +
+							li.mobilemenu__item
+								a Lorem
+							li.mobilemenu__item
+								a Lorem
+							li.mobilemenu__item
+								a Lorem
+							li.mobilemenu__item
+								a Lorem
+							li.mobilemenu__item
+								a Lorem
+							li.mobilemenu__item
+								a Lorem
 
-							a.btn Gå til indberetning
+						a.btn Gå til indberetning
 
 			//div.foxhound.query.query--mobile.query--tablet(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}")
 				div.mobilemenu
