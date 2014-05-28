@@ -7,25 +7,62 @@ $__blockName: 'mobilemenu';
 	display: block;
 	position: relative;
 	z-index: 1;
+	background-color: $color_white;
 	@include e(lv1 lv2) {
 		display: block;
 		margin: 0;
 		padding: 0;
 		list-style: none;
 		width: 100%;
+		&:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		& > ul {
+			display: block;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			width: 100%;
+		}
 	}
 	@include e(lv1) {
-
+		@include fontSize(eta, 0);
 	}
 	@include e(lv2) {
-
+		//margin-top: 40px;
+		@include e(item, "& ") {
+			padding-left: 60px;
+			//padding-right: 60px;
+		}
 	}
 	@include e(item) {
+		font-family: $font_gudea;
+		font-weight: normal;
 		display: block;
 		width: 100%;
+		position: relative;
+		text-transform: uppercase;
+		background-color: $color_white;
+		padding: 30px 30px;
+		border-top: 1px solid $color_lightgray;
 		@include m(category) {
-
+			background-color: $color_babyblue;
+			color: $color_summerorrange;
+			padding-top: 15px;
+			padding-bottom: 15px;
 		}
+	}
+	@include e(togglesub) {
+		@include fontSize(eta, 0);
+		display: block;
+		position: absolute;
+		right: 30px;
+		font-size: inherit;
+		top: 50%;
+		cursor: pointer;
+		color: $color_summerorrange;
 	}
 }
 

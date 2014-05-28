@@ -425,10 +425,10 @@
 
 		/* Scope Functions
 		 ===========================*/
+		/*
 		$scope.toggleScroll = function(state) {
 			state = (state === undefined) ? "toggle" : state;
 
-			/*
 			if (state === "toggle") {
 				if ($scope.css.overflow != "hidden") {
 					$scope.css.overflow = "hidden";
@@ -447,9 +447,9 @@
 				$scope.css.overflow = null;
 				$scope.css.height = null;
 			}
-			*/
 		};
-		/*
+		*/
+
 		$scope.toggleScroll = function(state) {
 			state = (state === undefined) ? "toggle" : state;
 			if (state === "toggle") {
@@ -462,19 +462,18 @@
 				$scope.states.disable = false;
 			}
 		};
-		*/
 
 		/* Bindings
 		 ===========================*/
 		// Scope Events
 		$rootScope.$on('scroll__toggleScroll',function(event, data) {
 			if (data != undefined && data.state != undefined) {
-				$scope.toggleScroll(data.state);
+				//$scope.toggleScroll(data.state);
 			}
 		});
 		// User Events
 		angular.element(window).bind('scroll', function(event) {
-			/*
+
 			console.log($scope.states.disable);
 			if ($scope.states.disable) {
 				event.preventDefault();
@@ -483,7 +482,7 @@
 			else {
 				$scope.data.lastYPos = window.scrollY;
 			}
-			*/
+
 		});
 
 	}]);
