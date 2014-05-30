@@ -383,25 +383,35 @@
 		$scope.data = ($scope.data === undefined) ? {} : $scope.data;
 		$scope.states = ($scope.states === undefined) ? {} : $scope.states;
 		$scope.options = ($scope.options === undefined) ? {} : $scope.options;
+
+		// Foxhound
+		$scope.foxhoundctrl = {
+			options: {},
+			data: {},
+			states: {
+				show: false
+			},
+			css: {}
+		};
+
 		// Options
 
 		// Data
 
 		// States
-		$scope.states.show = false;
 
 		/* Scope Functions
 		===========================*/
 		$scope.toggleShow = function(state) {
 			state = (state === undefined) ? "toggle" : state;
 			if (state === "toggle") {
-				$scope.states.show = !$scope.states.show;
+				$scope.foxhoundctrl.states.show = !$scope.foxhoundctrl.states.show;
 			}
 			if (state === "hide") {
-				$scope.states.show = false;
+				$scope.foxhoundctrl.states.show = false;
 			}
 			if (state === "show") {
-				$scope.states.show = true;
+				$scope.foxhoundctrl.states.show = true;
 			}
 			$rootScope.$broadcast('scroll__toggleScroll', {
 				state: state
@@ -418,6 +428,35 @@
 			}
 		});
 		// User Events
+		$element.bind('scroll', function() {
+			var child = $element.children();
+			var scrollDistFromTop = $element[0].scrollTop;
+			var scrollDistFromBottom = child[0].clientHeight - $element[0].scrollTop - $element[0].offsetHeight;
+
+			if (scrollDistFromTop === 0 && scrollDistFromBottom === 0) {
+
+			}
+			else if (scrollDistFromTop === 0) {
+				$element[0].scrollTop = 1;
+			}
+			else if (scrollDistFromBottom === 0) {
+				$element[0].scrollTop = child[0].clientHeight - $element[0].offsetHeight - 1;
+			}
+
+			//console.log(child[0].clientHeight);
+			//console.log($element[0].scrollTop);
+			//console.log($element[0].clientHeight);
+			//console.log($element[0].offsetHeight);
+			//console.log(window.innerHeight);
+
+			// Child height
+
+
+			// Posisition scrollbar always at least 1px from bottom and 1px from top to prevent escape scroll on window container
+
+			// 552 938 998
+
+		});
 		//$element.bind('click', function() {
 			//console.log("click");
 		//});

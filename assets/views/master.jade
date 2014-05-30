@@ -92,7 +92,7 @@ html(data-ng-app="nemrefusion")
 								div(data-ng-click="toggleSearch(false); releaseIndicator()") x
 
 			div.sticky.sticky--mobilemenu.query--tablet.query--mobile(data-ng-style="css", data-ng-controller="StickyCtrl", data-ng-class="{'sticky--fixed': states.sticky}", data-sticky-fill="true", data-sticky-topoffset="60")
-				div.foxhound(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':states.show}", data-ng-style="childcss")
+				div.foxhound(data-ng-controller="FoxhoundCtrl", data-ng-class="{'foxhound--show':foxhoundctrl.states.show}", data-ng-style="childcss")
 					div.mobilemenu(data-ng-controller="mobilemenuCtrl")
 						ul.mobilemenu__lv1
 							li.mobilemenu__item
