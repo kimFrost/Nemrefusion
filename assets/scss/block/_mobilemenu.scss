@@ -31,10 +31,14 @@ $__blockName: 'mobilemenu';
 		@include fontSize(eta, 0);
 	}
 	@include e(lv2) {
-		//margin-top: 40px;
 		@include e(item, "& ") {
 			padding-left: 60px;
-			//padding-right: 60px;
+			display: none;
+		}
+		@include m(unfolded) {
+			@include e(item) {
+				display: block;
+			}
 		}
 	}
 	@include e(item) {
@@ -68,6 +72,15 @@ $__blockName: 'mobilemenu';
 		cursor: pointer;
 		margin-top: -#{returnHalfFontSize(iota)};
 		color: $color_summerorrange;
+		&:before {
+			content: "+";
+			display: block;
+		}
+		@include m(unfolded) {
+			&:before {
+				content: "-";
+			}
+		}
 	}
 }
 

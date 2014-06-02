@@ -206,6 +206,24 @@
 				$scope.updateStickyStatus();
 			});
 		});
+		// Hide search event
+		$rootScope.$on('stickyCtrlToggleSearch',function(event, data) {
+			if (data != undefined && data.state != undefined) {
+				$scope.toggleSearch(data.state);
+			}
+		});
+		/*
+		// Press ESC
+		document.onkeydown = function(event) {
+			event = event || window.event;
+			if(event.which === 27) {
+				$scope.$apply(function() {
+					$scope.toggleSearch();
+				});
+			}
+		};
+		*/
+
 		$scope.updateStickyStatus();
 	}]);
 
@@ -387,7 +405,9 @@
 		// Foxhound
 		$scope.foxhoundctrl = {
 			options: {},
-			data: {},
+			data: {
+				lastYPos: window.scrollY
+			},
 			states: {
 				show: false
 			},
@@ -405,10 +425,16 @@
 		$scope.toggleShow = function(state) {
 			state = (state === undefined) ? "toggle" : state;
 			if (state === "toggle") {
-				$scope.foxhoundctrl.states.show = !$scope.foxhoundctrl.states.show;
+				if ($scope.foxhoundctrl.states.show) {
+					$scope.toggleShow('hide');
+				}
+				else {
+					$scope.toggleShow('show');
+				}
 			}
 			if (state === "hide") {
 				$scope.foxhoundctrl.states.show = false;
+				$scope.foxhoundctrl.data.lastYPos = (window.scrollY || window.pageYOffset);
 			}
 			if (state === "show") {
 				$scope.foxhoundctrl.states.show = true;
@@ -428,7 +454,9 @@
 			}
 		});
 		// User Events
-		$element.bind('scroll', function() {
+		$element.bind('scroll', function(event) {
+			if (event.stopPropagation)    event.stopPropagation();
+			if (event.cancelBubble!=null) event.cancelBubble = true;
 			var child = $element.children();
 			var scrollDistFromTop = $element[0].scrollTop;
 			var scrollDistFromBottom = child[0].clientHeight - $element[0].scrollTop - $element[0].offsetHeight;
@@ -457,9 +485,11 @@
 			// 552 938 998
 
 		});
-		//$element.bind('click', function() {
-			//console.log("click");
-		//});
+		angular.element(window).bind('scroll', function(event) {
+			if ($scope.foxhoundctrl.states.show) {
+				window.scrollTo(0, $scope.foxhoundctrl.data.lastYPos);
+			}
+		});
 	}]);
 
 
@@ -645,6 +675,11 @@
 			}
 		});
 		// User Events
+		$element.bind('click', function(){
+			$rootScope.$broadcast('stickyCtrlToggleSearch', {
+				state: false
+			});
+		});
 
 	}]);
 

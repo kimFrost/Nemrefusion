@@ -18,7 +18,8 @@ $cluster_max_item_height: 150px;
 $cluster_item_height_cal_interval: 25px;
 $cluster_num_of_heigths: ($cluster_max_item_height - $cluster_min_item_height) / $cluster_item_height_cal_interval;
 
-
+// For mediaqueries
+$cluster_use_mediaqueries: true;
 
 .cluster {
 	width: 100%;
@@ -178,10 +179,36 @@ $cluster_num_of_heigths: ($cluster_max_item_height - $cluster_min_item_height) /
 			}
 		}
 	}
+	@if $cluster_use_mediaqueries == true {
+		@include mediaQueries(tablet){
+			.cluster__item {
+				width: 100%;
+				&.cluster__item--1x1,
+				&.cluster__item--2x1,
+				&.cluster__item--1x2,
+				&.cluster__item--2x2 {
+					width: 100%;
+				}
+			}
+		}
+		@include mediaQueries(mobile){
+			.cluster__item {
+				width: 100%;
+				&.cluster__item--1x1,
+				&.cluster__item--2x1,
+				&.cluster__item--1x2,
+				&.cluster__item--2x2 {
+					width: 100%;
+				}
+			}
+		}
+
+	}
 	&.cluster--autoHeight {
 		.cluster__item {
 			height: auto;
 		}
 	}
 }
+
 

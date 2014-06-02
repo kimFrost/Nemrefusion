@@ -13,7 +13,8 @@ html(data-ng-app="nemrefusion")
 		block head
 	body
 		block body
-		section.nemrefusion(data-ng-controller="ScrollCtrl", data-ng-style="scrollctrl.css")
+		section.nemrefusion
+			//(data-ng-controller="ScrollCtrl", data-ng-style="scrollctrl.css")
 			block glovalVars
 
 			//div.dev(data-ng-controller="devCtrl")
@@ -101,7 +102,7 @@ html(data-ng-app="nemrefusion")
 								a Sådan indberetter du
 							li.mobilemenu__item
 								a Nyttig information
-								div.mobilemenu__togglesub(data-ng-click="toggleSubItems(1)") +
+								div.mobilemenu__togglesub(data-ng-click="toggleSubItems(1)", data-ng-class="{'mobilemenu__togglesub--unfolded': check(1)}")
 							li.mobilemenu__lv2(data-ng-class="{'mobilemenu__lv2--unfolded': check(1)}")
 								ul
 									li.mobilemenu__item.mobilemenu__item--category Vejledninger
@@ -116,7 +117,7 @@ html(data-ng-app="nemrefusion")
 										a Regler for barselsdagpenge
 							li.mobilemenu__item
 								a Nyheder og Support
-								div.mobilemenu__togglesub +
+								//div.mobilemenu__togglesub +
 							li.mobilemenu__item
 								a Lorem
 							li.mobilemenu__item
