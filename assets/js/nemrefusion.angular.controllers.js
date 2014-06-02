@@ -682,9 +682,12 @@
 		});
 		// User Events
 		$element.bind('click', function(){
+			// Buggy for some reason. Dom doesn't update propper
+			/*
 			$rootScope.$broadcast('stickyCtrlToggleSearch', {
 				state: false
 			});
+			*/
 		});
 
 	}]);
