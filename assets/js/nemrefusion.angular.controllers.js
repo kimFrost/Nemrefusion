@@ -434,7 +434,8 @@
 			}
 			if (state === "hide") {
 				$scope.foxhoundctrl.states.show = false;
-				$scope.foxhoundctrl.data.lastYPos = (window.scrollY || window.pageYOffset);
+				//$scope.foxhoundctrl.data.lastYPos = (window.scrollY || window.pageYOffset);
+				$scope.foxhoundctrl.data.lastYPos = (window.scrollY || window.scrollY);
 			}
 			if (state === "show") {
 				$scope.foxhoundctrl.states.show = true;
@@ -455,39 +456,44 @@
 		});
 		// User Events
 		$element.bind('scroll', function(event) {
-			if (event.stopPropagation)    event.stopPropagation();
-			if (event.cancelBubble!=null) event.cancelBubble = true;
-			var child = $element.children();
-			var scrollDistFromTop = $element[0].scrollTop;
-			var scrollDistFromBottom = child[0].clientHeight - $element[0].scrollTop - $element[0].offsetHeight;
+			if ($scope.foxhoundctrl.states.show) {
+				if (event.stopPropagation)    event.stopPropagation();
+				if (event.cancelBubble!=null) event.cancelBubble = true;
+				var child = $element.children();
+				var scrollDistFromTop = $element[0].scrollTop;
+				var scrollDistFromBottom = child[0].clientHeight - $element[0].scrollTop - $element[0].offsetHeight;
 
-			if (scrollDistFromTop === 0 && scrollDistFromBottom === 0) {
+				if (scrollDistFromTop === 0 && scrollDistFromBottom === 0) {
 
+				}
+				else if (scrollDistFromTop === 0) {
+					$element[0].scrollTop = 1;
+				}
+				else if (scrollDistFromBottom === 0) {
+					$element[0].scrollTop = child[0].clientHeight - $element[0].offsetHeight - 1;
+				}
+
+				//console.log(child[0].clientHeight);
+				//console.log($element[0].scrollTop);
+				//console.log($element[0].clientHeight);
+				//console.log($element[0].offsetHeight);
+				//console.log(window.innerHeight);
+
+				// Child height
+
+
+				// Posisition scrollbar always at least 1px from bottom and 1px from top to prevent escape scroll on window container
+
+				// 552 938 998
 			}
-			else if (scrollDistFromTop === 0) {
-				$element[0].scrollTop = 1;
-			}
-			else if (scrollDistFromBottom === 0) {
-				$element[0].scrollTop = child[0].clientHeight - $element[0].offsetHeight - 1;
-			}
-
-			//console.log(child[0].clientHeight);
-			//console.log($element[0].scrollTop);
-			//console.log($element[0].clientHeight);
-			//console.log($element[0].offsetHeight);
-			//console.log(window.innerHeight);
-
-			// Child height
-
-
-			// Posisition scrollbar always at least 1px from bottom and 1px from top to prevent escape scroll on window container
-
-			// 552 938 998
 
 		});
 		angular.element(window).bind('scroll', function(event) {
 			if ($scope.foxhoundctrl.states.show) {
 				window.scrollTo(0, $scope.foxhoundctrl.data.lastYPos);
+			}
+			else {
+				$scope.foxhoundctrl.data.lastYPos = (window.scrollY || window.scrollY);
 			}
 		});
 	}]);
